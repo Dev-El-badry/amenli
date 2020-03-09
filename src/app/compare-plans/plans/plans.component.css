@@ -1,0 +1,97 @@
+.plans {
+    text-align: center;
+}
+
+.plans .title-card {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4c4c4c;
+    text-decoration: uppercase;
+    color: #606060 !important;
+    font-family: OpenSans-Semibold;
+}
+
+.plans .subtitle {
+    color: #4c4c4c;
+    font-weight: 500;
+    margin-top: 18px;
+    height: 24px;
+    margin-bottom: 40px;
+}
+
+.lowest-price {
+    padding: 8px 21px;
+}
+
+.plans .badge {
+    background: #FFF100;
+    padding: 5px 26px;
+    font-family: Circle-Light;
+    color: #606060;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.plans .section-show-price .num-price {
+    margin-bottom: 0;
+    margin-top: 0px;
+    font-size: 54px;
+    font-family: OpenSans-Bold;
+}
+
+.plans .section-show-price .currency {
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: -9px;
+    font-family: OpenSans-Semibold;
+}
+
+.plans .features {
+    list-style: none;
+    text-align: left;
+    margin: 40px 0px 40px 44px;
+    color: #606060;
+    padding-left: 36px;
+    width: 100%;
+    font-family: Circle-Light;
+}
+
+.plans .features .feature {
+    margin-bottom: 20px;
+}
+
+.plans .features .feature .avaliable,
+.plans .features .feature .not-avaliable {
+    margin-right: 28px;
+    font-size: 31px;
+}
+
+.plans .features .feature .css-avaliable {
+    margin-right: 23px;
+    font-size: 24px;
+}
+
+.plans .features .feature .avaliable {
+    color: green
+}
+
+.plans .features .feature .not-avaliable {
+    color: red
+}
+
+.plans .buy-now {
+    border: none;
+    padding: 15px 44px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    font-family: OpenSans-Semibold;
+}
+
+.active-btn {
+    background: var(--gradiant-one);
+}
+
+.deactive-btn {
+    background: #606060;
+}

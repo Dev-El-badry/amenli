@@ -1,0 +1,138 @@
+<div class="plans">
+
+    <div class="p-grid">
+        <div class="p-col p-col-align-center" *ngFor="let itm of plans.plan; let i = index">
+            <p-card>
+                <h2 class="title-card">{{convertObjectToKeys(itm)[0] | uppercase}}</h2>
+
+                <p-selectButton [options]="options" ngModel="monthly" #selectType="ngModel" (onChange)="getChangeValue($event.value, i)">
+                    <ng-template let-item>
+
+                        <span>{{item.name | uppercase}}</span>
+                    </ng-template>
+                </p-selectButton>
+                <p class="subtitle">
+                    <span class="badge subtitle" *ngIf="convertObjectToKeys(itm)[0] == 'gold'">Lowest Price Guaranteed</span>
+                </p>
+
+                <div class="section-show-price">
+                    <h1 class="num-price ele-{{ i }}">{{convertObjectToValues(itm)[0]["month_price"] | number:'1.0-0'}}</h1>
+                    <p class="currency">EGP/
+                        <span class="type-{{ i }}">month</span>
+                    </p>
+                </div>
+
+
+
+
+
+                <ul class="features">
+                    <li class="feature" *ngFor="let feature of convertArray(convertObjectToValues(itm)[0]['benefit'].length); let j = index">
+
+                        <span>
+                            <span class="avaliable" *ngIf="chk_val_is_ture_or_yes(convertObjectToValues(convertObjectToValues(itm)[0]['benefit'][j])[0])" >
+                                <span class="pi pi-check"></span>
+                        </span>
+                        <span class="not-avaliable" *ngIf="chk_val_is_false_or_no(convertObjectToValues(convertObjectToValues(itm)[0]['benefit'][j])[0])">
+                                <span class="pi pi-times"></span>
+                        </span>
+                        <span class="css-avaliable" *ngIf="chk_if_not_true_and_false(convertObjectToValues(convertObjectToValues(itm)[0]['benefit'][j])[0])">
+                                {{convertObjectToValues(convertObjectToValues(itm)[0]['benefit'][j])[0]}}
+                            </span>
+                        </span>
+                        {{ convertObjectToKeys(convertObjectToValues(itm)[0]["benefit"][1])[0] }}
+
+                    </li>
+
+                </ul>
+
+                <button pButton type="button" class="buy-now {{planSelected == convertObjectToKeys(itm)[0]? 'active-btn ' :''}}" (click)="onClick(companyName,convertObjectToKeys(itm)[0],brandId, price)">BUY NOW</button>
+
+            </p-card>
+        </div>
+
+
+
+
+
+        <!-- <div class="p-col">
+            <p-card>
+                <h2 class="title-card">PLATINUM</h2>
+                <p-selectButton [options]="options" ngModel="monthly">
+                    <ng-template let-item>
+
+                        <span>{{item.name}}</span>
+                    </ng-template>
+                </p-selectButton>
+                <p class="subtitle">
+
+                </p>
+
+                <div class="section-show-price">
+                    <h1 class="num-price">450 </h1>
+                    <p class="currency">EGP/month</p>
+                </div>
+
+                <ul class="features">
+                    <li class="feature">
+                        <span class="avaliable pi pi-check"></span>100% coverage
+                    </li>
+                    <li class="feature">
+                        <span class="avaliable pi pi-check"></span>Road Aside Assistance
+                    </li>
+                    <li class="feature">
+                        <span class="not-avaliable pi pi-times"></span>Agency Repair
+                    </li>
+                    <li class="feature">
+                        <span class="not-avaliable pi pi-times"></span>Direct Installment
+                    </li>
+                </ul>
+
+                <button pButton type="button" class="buy-now deactive-btn">BUY NOW</button>
+
+            </p-card>
+        </div>
+        <div class="p-col">
+            <p-card>
+                <h2 class="title-card">DIAMOND</h2>
+                <p-selectButton [options]="options" ngModel="monthly">
+                    <ng-template let-item>
+
+                        <span>{{item.name}}</span>
+                    </ng-template>
+                </p-selectButton>
+                <p class="subtitle">
+
+                </p>
+
+                <div class="section-show-price">
+                    <h1 class="num-price">600</h1>
+                    <p class="currency">EGP/month</p>
+                </div>
+
+                <ul class="features">
+                    <li class="feature">
+                        <span class="avaliable pi pi-check"></span>100% coverage
+                    </li>
+                    <li class="feature">
+                        <span class="avaliable pi pi-check"></span>Road Aside Assistance
+                    </li>
+                    <li class="feature">
+                        <span class="not-avaliable pi pi-times"></span>Agency Repair
+                    </li>
+                    <li class="feature">
+                        <span class="not-avaliable pi pi-times"></span>Direct Installment
+                    </li>
+                </ul>
+
+                <button pButton type="button" class="buy-now deactive-btn">BUY NOW</button>
+
+            </p-card>
+        </div> -->
+
+
+
+
+
+    </div>
+</div>

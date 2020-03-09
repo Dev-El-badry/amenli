@@ -1,0 +1,42 @@
+{
+    "quotes": {
+        "lowest_price": "Lowest Price Guaranteed.",
+        "get_insurced": "Get Insured in less than",
+        "2mins": "2 minutes",
+        "compare_title": "Compare quotes instanlty",
+        "insurance": "Insurance",
+        "car": "Car",
+        "mdeical": "Mdeical",
+        "life": "Life",
+        "age": "Age",
+        "gender": "Gender",
+        "type_work": "Type Of Work",
+        "qts": "Do You Suffer From Any Chronic Illnesses?",
+        "yes": "Yes",
+        "no": "No",
+        "brand": "Brand",
+        "price": "Price",
+        "year": "Year"
+    },
+    "compare": {
+        "title1": "You're Almost There!",
+        "title2": "Tow More Clicks To Checkout",
+        "sort": "Sort By:",
+        "currency_and_date": "EGY/month",
+        "alert": "Lowest Price Guaranteed",
+        "view_deal": "View Deal"
+
+    },
+    "card_price": {
+        "title": "Skip the comparison",
+        "title1": "Choose The Best Price",
+        "title2": "Lowest price From GIG",
+        "buy_now": " Buy Now",
+        "go_compare": "Go Compare",
+        "other": "Other In Insurance Companies",
+        "": "",
+        "": "",
+        "": "",
+        "": ""
+    }
+}

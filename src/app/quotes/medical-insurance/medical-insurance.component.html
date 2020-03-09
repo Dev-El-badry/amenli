@@ -1,0 +1,23 @@
+<form class="form-group">
+    <div class="form-control">
+        <label class="label-input">{{ 'quotes.age' | translate }}</label>
+        <p-dropdown [options]="ages" class="input-field"></p-dropdown>
+    </div>
+    <div class="form-control">
+        <label class="label-input">{{ 'quotes.gender' | translate }}</label>
+        <input type="text" pInputText class="input-field" placeholder="MALE/FEMALE">
+    </div>
+    <div class="form-control">
+        <label class="label-input">{{ 'quotes.type_work' | translate }}</label>
+        <p-dropdown [options]="" class="input-field"></p-dropdown>
+    </div>
+
+    <div class="form-control">
+        <div class="radio-suffer p-grid">
+            {{ 'quotes.qts' | translate }}
+            <label> <span> {{ 'quotes.yes' | translate }} </span><p-radioButton type="radio" name="salutation" ></p-radioButton></label>
+            <label> <span> {{ 'quotes.no' | translate }}</span><p-radioButton type="radio" name="salutation" >  </p-radioButton></label>
+        </div>
+
+    </div>
+</form>

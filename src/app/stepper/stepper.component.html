@@ -1,0 +1,28 @@
+<section class="stepper">
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+            <div class="mdl-stepper-horizontal-alternative">
+                <!-- step-done -->
+                <div class="mdl-stepper-step  ">
+                    <span class="num-counter  effect-on-num-counter {{ val == 'home' ? 'span-active': ''}}  effect-on-num-counter-mob ">1</span>
+                    <div class="mdl-stepper-circle {{ val == 'home' ? 'active': ''}} "></div>
+                    <div class="mdl-stepper-title">Plan</div>
+                    <i class="pi pi-arrow-right icon-arrow"></i>
+                </div>
+                <!-- editable-step -->
+                <div class="mdl-stepper-step  ">
+                    <span class="num-counter effect-on-num-counter effect-on-num-counter-mob {{ val == 'plan' ? 'span-active': ''}}">2</span>
+                    <div class="mdl-stepper-circle  {{ val == 'plan' ? 'active': ''}}"></div>
+                    <div class="mdl-stepper-title">Choose</div>
+                    <i class="pi pi-arrow-right icon-arrow"></i>
+                </div>
+                <div class="mdl-stepper-step ">
+                    <span class="num-counter  effect-on-num-counter effect-on-num-counter-mob {{ val == 'checkout' ? 'span-active': ''}}">3</span>
+                    <div class="mdl-stepper-circle  {{ val == 'checkout' ? 'active': ''}}"></div>
+                    <div class="mdl-stepper-title">Checkout</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

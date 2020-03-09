@@ -1,0 +1,529 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    font-family: Circle-Light !important;
+}
+
+@font-face {
+    font-family: OpenSans-Bold;
+    src: url('assets/fonts/OpenSans-Bold.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: GILLUBCD;
+    src: url('assets/fonts/GILLUBCD.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url('assets/fonts/OpenSans-Regular.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: OpenSans-Semibold;
+    src: url('assets/fonts/OpenSans-Semibold.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: Circle-Light;
+    src: url('assets/fonts/Circle-Light.otf') format("opentype");
+}
+
+@font-face {
+    font-family: GillSans;
+    src: url('assets/fonts/GillSans.ttc') format("opentype");
+}
+
+@font-face {
+    font-family: FuturaBoldBT;
+    src: url('assets/fonts/FuturaBoldBT.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: FuturaBkBT;
+    src: url('assets/fonts/FuturaBkBT.ttf') format("opentype");
+}
+
+body {
+    margin: 0;
+    font-family: "OpenSans";
+    height: 1000px;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+    color: var(--black-color) !important;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+:root {
+    --first-color: #80277B;
+    --second-color: #E42E5E;
+    --third-color: #D95F1E;
+    --four-color: #9ED8DA;
+    --five-color: #8BC53F;
+    --six-color: #B4ABA6;
+    /* gradients */
+    --seven-color: #B85268;
+    --eight-color: #825672;
+    /* gradients */
+    --nine-color: #F6921E;
+    --ten-color: #B95F50;
+    /* black color */
+    --black-color: #221f1f;
+    --light-gray-color: #eee;
+    --another-gray-color: #606060;
+    /* Width And Height */
+    --width: 165px;
+    --height: 140px;
+    /* vars gradiant color */
+    --gradiant-one: linear-gradient(#f00, orange);
+    --gradiant-tow: linear-gradient(to right, #9FC6C6, #89C6C6, #6EBFC3);
+    --gradiant-three: linear-gradient(to right, #9FC6C6, #89C6C6);
+    --gradiant-four: linear-gradient(#F6921E, #D95F1E);
+}
+
+.main-content .ui-tabview.ui-tabview-top .ui-tabview-nav li,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li {
+    border: none;
+    background: var(--gradiant-one);
+}
+
+a#ui-tabpanel-1-label,
+a#ui-tabpanel-2-label,
+a#ui-tabpanel-0-label {
+    color: #fff;
+}
+
+li.ui-state-default.ui-corner-top.ui-tabview-selected.ui-state-active.ng-star-inserted a {
+    color: var(--black-color) !important;
+    font-family: OpenSans-Regular;
+    font-weight: bold;
+}
+
+li.ui-state-default.ui-corner-top.ui-tabview-selected.ui-state-active.ng-star-inserted i.icon-tabs {
+    color: #227070
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
+    border: none;
+    background: var(--gradiant-three) !important;
+}
+
+.ui-tabview .ui-tabview-nav li {
+    width: 33% !important;
+    height: 75px !important;
+    line-height: 57px !important;
+    font-size: 15px !important;
+    text-transform: uppercase !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+a#ui-tabpanel-0-label,
+a#ui-tabpanel-1-label,
+a#ui-tabpanel-2-label {
+    line-height: 37px;
+    font-family: OpenSans-Semibold;
+    font-weight: bold;
+}
+
+
+/* HERE */
+
+a#ui-tabpanel-0-label .break-text,
+a#ui-tabpanel-1-label .break-text,
+a#ui-tabpanel-2-label .break-text {
+    display: block;
+    margin-top: -14px;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
+    background-color: var(--four-color);
+    border: none;
+}
+
+
+/*HERE*/
+
+body .ui-tabview .ui-tabview-panels {
+    background: var(--gradiant-tow);
+    width: 99.4%;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li:focus,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li:focus,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li:focus,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li:focus {
+    box-shadow: none;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active:hover,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active:hover,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active:hover {
+    border: none;
+    background-color: var(--four-color);
+}
+
+.ui-tabview-panels {
+    border-radius: 0 0 20px 20px;
+}
+
+#menu-quotes .ui-dropdown.ui-widget.ui-state-default.ui-corner-all.ui-helper-clearfix {
+    width: 100%;
+    background: #eee;
+    height: 53px;
+    text-align: center;
+}
+
+#menu-quotes .ui-dropdown-label.ui-inputtext.ui-corner-all.ui-placeholder.ui-dropdown-label-empty.ng-star-inserted {
+    background: #eee;
+}
+
+#menu-quotes .ui-dropdown .ui-dropdown-trigger {
+    background: #eee;
+    border-radius: 12px;
+}
+
+.search-box .ui-corner-all {
+    -moz-border-radius: 12x;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    border: 0;
+}
+
+.main-content .ui-corner-all {
+    -moz-border-radius: 12x;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    border: 0;
+}
+
+#menu-quotes .ui-dropdown-label.ui-inputtext.ui-corner-all.ng-star-inserted {
+    background: #eee;
+    font-weight: 100;
+    line-height: 35px;
+    font-size: 20px;
+}
+
+label.label-input {
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+input.input-field.ui-inputtext.ui-corner-all.ui-state-default.ui-widget {
+    width: 100% !important;
+    border-radius: 12px;
+    height: 53px;
+    border: none;
+    background: #eee;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.form-group {
+    margin: 40px auto 40px 40px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.checkout .ui-radiobutton .ui-radiobutton-box {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: #eee;
+    margin-top: -8px;
+}
+
+body .best-price .ui-card {
+    background-color: #eee;
+    color: #333333;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top.ng-tns-c8-2.ng-star-inserted {
+    display: none;
+}
+
+.plans-section .ui-card-body {
+    margin-top: 15px;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-button-text-only {
+    padding: 3px 25px;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-button-text-only:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-button-text-only:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+body .ui-selectbutton .ui-button.ui-state-active:not(.ui-state-disabled):hover {
+    background-color: #606060;
+    border-color: #606060;
+}
+
+body .ui-selectbutton .ui-button {
+    background-color: #fff;
+    border: 1px solid #606060;
+}
+
+body .ui-selectbutton .ui-button.ui-state-active {
+    background-color: #606060;
+    border-color: #606060;
+}
+
+
+/* Start Component Plans */
+
+.plans .p-col {
+    padding: 0px;
+}
+
+.plans .ui-card {
+    box-shadow: 0 12px 17px 0 rgba(0, 0, 0, 0.2), 0 1px 30px 0 rgba(0, 0, 0, 0.14), 0 2px 16px -1px rgba(0, 0, 0, 0.12);
+}
+
+.plans .ui-corner-all {
+    border-radius: 0px;
+}
+
+.plans .ui-card.ui-widget.ui-widget-content.ui-corner-all {
+    margin-bottom: 40px;
+}
+
+
+/* End Component Plans */
+
+
+/* Start Component Payment */
+
+.payment .ui-card-header {
+    padding: 17px;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.payment .ui-corner-all {
+    border-radius: 5px;
+}
+
+.payment .ui-card-body {
+    background: #eee;
+}
+
+.payment .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+    border-color: green;
+    background-color: green;
+}
+
+.payment .ui-card-content {
+    text-align: left;
+    margin-left: -39px;
+    margin-top: -37px;
+    margin-bottom: -12px;
+}
+
+.check-terms-conditions .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+    font-size: 25px;
+}
+
+.check-terms-conditions .ui-chkbox .ui-chkbox-box {
+    width: 30px;
+    height: 30px
+}
+
+.check-terms-conditions .ui-chkbox.ui-widget {
+    margin-top: -12px;
+}
+
+
+/* End Component Payment */
+
+.ng-tns-c4-0.ng-trigger.ng-trigger-panelState.ui-sidebar.ui-widget.ui-widget-content.ui-shadow.ui-sidebar-active.ui-sidebar-right {
+    padding: 0;
+}
+
+body .ui-dialog .ui-dialog-content {
+    overflow-y: scroll;
+    max-height: 100%;
+    height: 97vh;
+}
+
+body .ui-dialog .ui-dialog-titlebar {
+    display: none;
+}
+
+
+/* start section chooose */
+
+.choose .ui-inputtext:enabled:focus:not(.ui-state-error) {
+    box-shadow: 0 0 0 0.2em var(--nine-color);
+    border-color: var(--nine-color);
+}
+
+.choose .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: var(--nine-color);
+    background-color: var(--nine-color);
+    color: #ffffff;
+}
+
+.choose .ui-card {
+    background-color: #ffffff;
+    color: var(--black-color);
+    border: 1px solid #eee;
+    padding: 0 5px;
+    box-shadow: none;
+    border-radius: 10px;
+}
+
+.choose .ui-inputtext {
+    padding: 0;
+}
+
+.choose .ui-inputtext {
+    padding: 0;
+    color: #E42E5E;
+}
+
+.choose .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+    color: #E42E5E;
+}
+
+.choose .ui-dropdown {
+    border: none;
+    height: 99%;
+    width: 100px;
+    text-align: center;
+    font-size: 14px;
+    font-family: Circle-Light;
+}
+
+.choose .ui-dropdown-label {
+    border: none;
+}
+
+.choose li.ui-dropdown-item.ui-corner-all {
+    color: #E42E5E;
+}
+
+.choose .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight,
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight {
+    background: #E42E5E;
+    color: #fff;
+}
+
+.choose .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover,
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+    background: #EDF7FF;
+}
+
+
+/* end section choose */
+
+
+/* start section carousel */
+
+.ui-carousel-dot-item {
+    display: none;
+}
+
+
+/* end section carousel */
+
+@media screen and (max-width: 700px) {
+    .form-group {
+        margin: 0px !important;
+    }
+    .ui-tabview .ui-tabview-nav li {
+        width: 32.71% !important;
+    }
+    .radio-suffer {
+        margin-top: 13px;
+    }
+    .res-mobile {
+        width: 100% !important;
+    }
+    .heidden-section {
+        display: none;
+    }
+    .container {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .res-mobile2 {
+        width: 100% !important;
+    }
+    .heidden-section2 {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (max-width: 400px) {
+    body .ui-tabview.ui-tabview-top .ui-tabview-nav li {
+        margin-right: 1px;
+    }
+    body .ui-tabview.ui-tabview-top .ui-tabview-nav li:last-child {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (max-width: 900px) {
+    .plans .ui-card.ui-widget.ui-widget-content.ui-corner-all {
+        width: 356px;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}

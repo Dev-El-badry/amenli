@@ -1,0 +1,81 @@
+<div class="order">
+    <section class="order-summary">
+
+        <h2 class="title-summary">
+            Order Summary
+        </h2>
+        <div class="gold-tier">
+            <div class="p-grid">
+                <div class="p-col-6">
+                    <h4>{{planSelected}} Tier</h4>
+                    <ul class="package-offers">
+                        <li class="offer" *ngFor="let item of convertObjectToValues(planData)[0]['benefit']">
+                            {{convertObjectToValues(item)[0] }} {{convertObjectToKeys(item)[0]}}
+                        </li>
+
+                    </ul>
+
+
+                </div>
+                <div class="p-col-6">
+                    <div class="package-price">
+                        <p>
+                            <span class="price-num">{{convertObjectToValues(planData)[0]['month_price'] | number:'1.0-0'}}</span>
+                            <span class="currency">EGP/month</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="link-terms-conditions">Terms & Conditions</a>
+        </div>
+
+        <div class="subtotal">
+            <div class="p-grid">
+                <div class="p-col">
+                    <h4>Subtotal</h4>
+                </div>
+                <div class="p-col">
+                    <div class="package-price">
+                        <p>
+                            <span class="price-num">{{convertObjectToValues(planData)[0]['month_price'] | number:'1.0-0'}}</span>
+                            <span class="currency">EGP/month</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="total">
+            <div class="p-grid">
+                <div class="p-col">
+                    <h4>Total</h4>
+                </div>
+                <div class="p-col">
+                    <div class="package-price-total">
+                        <p>
+                            <span class="price-num">{{convertObjectToValues(planData)[0]['month_price'] | number:'1.0-0'}}</span>
+                            <span class="currency">EGP/month</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <p-toast position="center"></p-toast>
+    <button pButton type="button" class="request-policy" (click)="onClick()" [disabled]="!form.valid && !chk_val">Request Policy</button>
+    <div class="check-terms-conditions">
+        <p-checkbox name="groupname" value="val1" (onChange)="getCheck($event)"></p-checkbox><span class="title"> I have read and accept the Terms & Conditions</span>
+    </div>
+    <h4 class="title-termin-and-conditions">Terms & Conditions:</h4>
+    <ol class="terms-conditions">
+
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting</li>
+    </ol>
+</div>

@@ -1,0 +1,68 @@
+<section class="payment">
+    <h3 class="payment-title">Payment Method</h3>
+    <div class="methods">
+        <p-card>
+            <p-header>
+                <div class="p-grid">
+                    <div class="p-col">
+                        <p-radioButton name="method-payment" value="visa" (onClick)="onClicked($event)">Credit Card</p-radioButton>
+                        <span class="title-method">
+                        Credit Card
+                        </span>
+                    </div>
+                    <div class="p-col">
+                        <ul class="icons-payment">
+                            <li class="icon-payment"><img src="assets/images/icons/visa.png" alt="visa"></li>
+                            <li class="icon-payment"><img src="assets/images/icons/master-card.jpg" alt="master-card"></li>
+                            <li class="icon-payment"><img src="assets/images/icons/mastero.jpg" alt="mastero"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </p-header>
+
+            <div class="body-content">
+
+                <form action="" class="form-group-custom" [formGroup]="form">
+
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <input type="text" pInputText formControlName="cardNumber" class="form-field" placeholder="Card Number" />
+                        </div>
+
+                        <div class="p-col-12">
+                            <input type="text" pInputText formControlName="name" class="form-field" placeholder="Name On Card" />
+                        </div>
+
+
+                        <div class="p-col-6  res-mobile">
+                            <input type="email" pInputText formControlName="email" class="form-field" placeholder="Email" />
+                        </div>
+                        <div class="p-col-6  res-mobile">
+                            <input type="number" pInputText formControlName="number" class="form-field" placeholder="Number" />
+                        </div>
+                        <div class="p-col-6  res-mobile">
+                            <input type="text" pInputText formControlName="expDate" class="form-field" placeholder="Exp. Date" />
+                        </div>
+                        <div class="p-col-6  res-mobile">
+                            <input type="text" pInputText formControlName="securityCode" class="form-field" placeholder="Security Code" />
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="push"></div>
+        </p-card>
+        <footer class="footer">
+            <div class="foorer-cash">
+
+                <p-radioButton name="method-payment" value="cash">Cash</p-radioButton>
+                <span class="title-method">
+                    Cash
+                </span>
+            </div>
+        </footer>
+
+    </div>
+</section>
