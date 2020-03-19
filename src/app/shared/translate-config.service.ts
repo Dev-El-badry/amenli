@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DOCUMENT } from '@angular/common';
 @Injectable()
 export class TranslateConfigService {
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService, @Inject(DOCUMENT) private doc) {}
 
   getDefaultLanguage() {
     let language = this.translate.getBrowserLang();
@@ -17,5 +18,13 @@ export class TranslateConfigService {
 
   setDefault(defLang) {
     this.translate.setDefaultLang(defLang);
+  }
+
+  setDir(dir:string) {
+    this.doc.dir = dir;
+  }
+
+  getDir() {
+    return this.doc.dir;
   }
 }

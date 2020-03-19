@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.trnaslateService.setLanguage('en');
     this.trnaslateService.setDefault('en');
+
+    this.trnaslateService.setDir('ltr');
     
   }
 }

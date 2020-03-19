@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { QuotesService } from '../shared/quotes.service';
 import { Subscription } from 'rxjs';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-car-insurance',
   templateUrl: './car-insurance.component.html',
@@ -18,7 +19,7 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
     price: 0,
     year: 0
   };
-  constructor(private quotesService: QuotesService) { }
+  constructor(private quotesService: QuotesService, private translate: TranslateService) { }
 
   ngOnInit() {
 
@@ -34,6 +35,10 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
     });
 
     this.quotesService.fetchBrandsFromService();
+
+    this.translate.get('quotes.car_placeholder').subscribe((text:string) => {
+      (<HTMLInputElement>document.getElementById('price')).placeholder = text;
+    });
   }
 
   createCarForm(){

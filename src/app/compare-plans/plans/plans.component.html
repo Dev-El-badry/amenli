@@ -12,13 +12,14 @@
                     </ng-template>
                 </p-selectButton>
                 <p class="subtitle">
-                    <span class="badge subtitle" *ngIf="convertObjectToKeys(itm)[0] == 'gold'">Lowest Price Guaranteed</span>
+
+                    <span class="badge subtitle" *ngIf="convertObjectToKeys(itm)[0] == 'gold'">{{ 'quotes.lowest_price' | translate }}</span>
                 </p>
 
                 <div class="section-show-price">
                     <h1 class="num-price ele-{{ i }}">{{convertObjectToValues(itm)[0]["month_price"] | number:'1.0-0'}}</h1>
-                    <p class="currency">EGP/
-                        <span class="type-{{ i }}">month</span>
+                    <p class="currency">{{'compare.egp' | translate}}/
+                        <span class="type-{{ i }}">{{'compare.month' | translate}}</span>
                     </p>
                 </div>
 
@@ -46,7 +47,7 @@
 
                 </ul>
 
-                <button pButton type="button" class="buy-now {{planSelected == convertObjectToKeys(itm)[0]? 'active-btn ' :''}}" (click)="onClick(companyName,convertObjectToKeys(itm)[0],brandId, price)">BUY NOW</button>
+                <button pButton type="button" class="buy-now {{planSelected == convertObjectToKeys(itm)[0]? 'active-btn ' :''}}" (click)="onClick(companyName,convertObjectToKeys(itm)[0],brandId, price)">{{'card_price.buy_now' | translate}}</button>
 
             </p-card>
         </div>

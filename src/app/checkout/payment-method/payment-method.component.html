@@ -1,13 +1,13 @@
 <section class="payment">
-    <h3 class="payment-title">Payment Method</h3>
+    <h3 class="payment-title">{{ 'checkout.payment_method' | translate }}</h3>
     <div class="methods">
         <p-card>
             <p-header>
                 <div class="p-grid">
                     <div class="p-col">
-                        <p-radioButton name="method-payment" value="visa" (onClick)="onClicked($event)">Credit Card</p-radioButton>
+                        <p-radioButton name="method-payment" value="visa" (onClick)="onClicked($event)">{{ 'checkout.credit_card' | translate }}</p-radioButton>
                         <span class="title-method">
-                        Credit Card
+                            {{ 'checkout.credit_card' | translate }}
                         </span>
                     </div>
                     <div class="p-col">
@@ -27,25 +27,25 @@
 
                     <div class="p-grid">
                         <div class="p-col-12">
-                            <input type="text" pInputText formControlName="cardNumber" class="form-field" placeholder="Card Number" />
+                            <input type="text" pInputText formControlName="cardNumber" id="card_number" class="form-field" />
                         </div>
 
                         <div class="p-col-12">
-                            <input type="text" pInputText formControlName="name" class="form-field" placeholder="Name On Card" />
+                            <input type="text" pInputText formControlName="name" id="name_card" class="form-field" />
                         </div>
 
 
                         <div class="p-col-6  res-mobile">
-                            <input type="email" pInputText formControlName="email" class="form-field" placeholder="Email" />
+                            <input type="email" pInputText formControlName="email" id="email" class="form-field" />
                         </div>
                         <div class="p-col-6  res-mobile">
-                            <input type="number" pInputText formControlName="number" class="form-field" placeholder="Number" />
+                            <input type="number" pInputText formControlName="number" id="number" class="form-field" />
                         </div>
                         <div class="p-col-6  res-mobile">
-                            <input type="text" pInputText formControlName="expDate" class="form-field" placeholder="Exp. Date" />
+                            <input type="text" pInputText formControlName="expDate" id="exp" class="form-field" />
                         </div>
                         <div class="p-col-6  res-mobile">
-                            <input type="text" pInputText formControlName="securityCode" class="form-field" placeholder="Security Code" />
+                            <input type="text" pInputText formControlName="securityCode" id="security_code" class="form-field" />
                         </div>
                     </div>
                 </form>
@@ -57,9 +57,9 @@
         <footer class="footer">
             <div class="foorer-cash">
 
-                <p-radioButton name="method-payment" value="cash">Cash</p-radioButton>
+                <p-radioButton name="method-payment" value="cash">{{ 'checkout.cash' | translate }}</p-radioButton>
                 <span class="title-method">
-                    Cash
+                    {{ 'checkout.cash' | translate }}
                 </span>
             </div>
         </footer>

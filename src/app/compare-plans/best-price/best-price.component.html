@@ -1,24 +1,24 @@
 <section class="best-price">
     <p-card>
-        <h4>{{ 'car_price.title' }}</h4>
+        <h4>{{ 'card_price.title' | translate}}</h4>
         <h5>
-            {{ 'car_price.title1' }}
+            {{ 'card_price.title1' | translate}}
         </h5>
-        <h6> {{ 'car_price.title2' }}</h6>
+        <h6> {{ 'card_price.title2' | translate}}</h6>
 
         <h2 class="price-num">{{price | number:'1.0-0' }}</h2>
-        <h3 class="currency">{{ 'compare.currency_and_date' }}</h3>
+        <h3 class="currency">{{ 'compare.currency_and_date' | translate }}</h3>
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <!-- <p>{{ validPrice() }}</p> -->
             <!-- [disabled]="!f.valid || !validPrice()" -->
             <!-- [disabled]="!f.valid || !validPrice()" -->
             <input type="hidden" name="price" #priceInput="ngModel" [ngModel]="price" requried>
-            <button pButton type="submit" label="Buy Now" class="ui-button-success color" [disabled]="!f.valid || !validPrice()">{{ 'card_price.buy_now' }}</button>
+            <button pButton type="submit" label="Buy Now" class="ui-button-success color" [disabled]="!f.valid || !validPrice()">{{ 'card_price.buy_now' | translate }}</button>
         </form>
     </p-card>
-    <p class="or">Or</p>
-    <button pButton type="button" class="compare-btn" (click)="onClick()" label="Buy Now" [disabled]="!f.valid || !validPrice()">{{ 'card_price.go_compare' }}</button>
+    <p class="or">{{ 'card_price.or' | translate }}</p>
+    <button pButton type="button" class="compare-btn" (click)="onClick()" label="Buy Now" [disabled]="!f.valid || !validPrice()">{{ 'card_price.go_compare' | translate }}</button>
     <!-- <app-compare-modal></app-compare-modal> -->
-    <p class="other-compare">{{length}} {{ 'compare.other' }}</p>
+    <p class="other-compare">{{length}} {{ 'card_price.other' | translate }}</p>
 
 </section>

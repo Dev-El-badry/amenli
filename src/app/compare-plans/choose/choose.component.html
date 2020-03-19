@@ -76,7 +76,7 @@
                     <li class="nav-item">{{ 'compare.sort'| translate }}</li>
 
                     <li class="nav-item" (click)="sort(valChk)">
-                        Price
+                        {{'quotes.price' | translate}}
                         <i class="fas fa-sort"></i>
                     </li>
 
@@ -142,7 +142,7 @@
                                 <div [ngClass]="[breakpoint, 'p-col-align-center']">
                                     <div class="btn-actions ">
 
-                                        <button pButton type="button" label="Buy Now" (click)="onClick(convertObjectToValues(convertObjectToValues(convertObjectToValues(items)[j]))[0], convertObjectToKeys(convertObjectToValues(convertObjectToValues(items)[j].plan)[i])[0], brandId, price)" class="ui-button-success color">{{ 'compare.view_deal'| translate }}</button>
+                                        <button pButton type="button" label="Buy Now" (click)="onClick(convertObjectToValues(convertObjectToValues(convertObjectToValues(items)[j]))[2], convertObjectToKeys(convertObjectToValues(convertObjectToValues(items)[j].plan)[i])[0], brandId, price)" class="ui-button-success color">{{ 'compare.view_deal'| translate }}</button>
                                     </div>
                                 </div>
                             </div>

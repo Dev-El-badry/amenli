@@ -89,7 +89,7 @@ body h6 {
     --width: 165px;
     --height: 140px;
     /* vars gradiant color */
-    --gradiant-one: linear-gradient(#f00, orange);
+    --gradiant-one: linear-gradient(#E42E5E, #80277B);
     --gradiant-tow: linear-gradient(to right, #9FC6C6, #89C6C6, #6EBFC3);
     --gradiant-three: linear-gradient(to right, #9FC6C6, #89C6C6);
     --gradiant-four: linear-gradient(#F6921E, #D95F1E);

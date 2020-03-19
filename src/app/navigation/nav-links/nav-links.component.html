@@ -1,12 +1,15 @@
 <div class="nav-links-co">
-    <div class="p-col-8 p-offset-2">
+    <div class="p-col-10 p-col-align-center" style="text-align: center;
+    margin: 0 auto;">
         <div class="links-nav ">
             <div class="p-grid p-align-center">
-                <div class="p-col nav-item "><a href="# ">About Us</a></div>
-                <div class="p-col nav-item "><a href="# ">Insurance Type</a></div>
-                <div class="p-col nav-item "><a href="# ">Claims</a></div>
-                <div class="p-col nav-item "><a href="# ">Blog</a></div>
-                <div class="p-col nav-item "><a href="# ">Contact US</a></div>
+                <div class="p-col nav-item "><a href="# ">{{ 'nav_list.about_us' | translate }}</a></div>
+                <div class="p-col nav-item "><a href="# ">{{ 'nav_list.insurance_type' | translate }}</a></div>
+                <div class="p-col nav-item "><a href="# ">{{ 'nav_list.claims' | translate }}</a></div>
+                <div class="p-col nav-item "><a href="# ">{{ 'nav_list.blog' | translate }}</a></div>
+                <div class="p-col nav-item "><a href="# ">{{ 'nav_list.contact_us' | translate }}</a></div>
+                <div class="p-col nav-item " *ngIf="direction != 'rtl'"><a (click)="changeLang('ar')">عربى</a></div>
+                <div class="p-col nav-item " *ngIf="direction != 'ltr'"><a (click)="changeLang('en')">English</a></div>
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@
         "compare_title": "Compare quotes instanlty",
         "insurance": "Insurance",
         "car": "Car",
-        "mdeical": "Mdeical",
+        "medical": "Medical",
         "life": "Life",
         "age": "Age",
         "gender": "Gender",
@@ -16,7 +16,9 @@
         "no": "No",
         "brand": "Brand",
         "price": "Price",
-        "year": "Year"
+        "year": "Year",
+        "car_placeholder": "Enter Your Price Car",
+        "title": "in collaboration with"
     },
     "compare": {
         "title1": "You're Almost There!",
@@ -24,7 +26,14 @@
         "sort": "Sort By:",
         "currency_and_date": "EGY/month",
         "alert": "Lowest Price Guaranteed",
-        "view_deal": "View Deal"
+        "view_deal": "View Deal",
+        "first_title": "Choose The Plan That's Work For You!",
+        "second_title": "We've found the lowest price for you!",
+        "egp": "EGP",
+        "month": "month",
+        "year": "year",
+        "": ""
+
 
     },
     "card_price": {
@@ -34,9 +43,43 @@
         "buy_now": " Buy Now",
         "go_compare": "Go Compare",
         "other": "Other In Insurance Companies",
+        "or": "OR",
         "": "",
         "": "",
+        "": ""
+    },
+    "nav_list": {
+        "about_us": "ABOUT US",
+        "insurance_type": "INSURANCE TYPE",
+        "claims": "CLAIMS",
+        "blog": "BLOG",
+        "contact_us": "CONTACT US",
+        "search": "SEARCH",
         "": "",
+        "": ""
+    },
+    "checkout": {
+        "order_summary": "Order Summary",
+        "terms": "Terms & Conditions",
+        "total": "Total",
+        "policy": "Request Policy",
+        "confirm": "I have read and accept the Terms & Conditions",
+        "payment_method": "Payment Method",
+        "credit_card": "Credit Card",
+        "cash": "Cash",
+        "card_number": "Card Number",
+        "name_card": "Name On Card",
+        "email": "Email",
+        "number": "Number",
+        "exp": "Exp. Date",
+        "security_code": "Security Code",
+        "subtotal": "Subtotal",
+        "tier": "Tier"
+    },
+    "stepper": {
+        "plan": "Plan",
+        "choose": "Choose",
+        "checkout": "Checkout",
         "": ""
     }
 }

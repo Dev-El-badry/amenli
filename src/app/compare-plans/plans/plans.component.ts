@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CompareModelService } from '../shared/compare-model.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-plans',
@@ -19,7 +20,9 @@ export class PlansComponent implements OnInit, OnDestroy {
   change = false;
   loadPlansSub: Subscription;
   plans;
-  constructor(private router: Router, private params: ActivatedRoute, private compareModelService: CompareModelService) { }
+  month: string;
+  year: string;
+  constructor(private translate: TranslateService ,private router: Router, private params: ActivatedRoute, private compareModelService: CompareModelService) { }
 
   ngOnInit() {
 
@@ -41,6 +44,14 @@ export class PlansComponent implements OnInit, OnDestroy {
 
       console.log('Here',this.plans);
       this.compareModelService.getPlans(this.companyName, this.brandId, this.price);
+    });
+
+    this.translate.get('compare.month').subscribe((text: string) => {
+      this.month = text;
+    });
+
+    this.translate.get('compare.year').subscribe((text: string) => {
+      this.year = text;
     });
   }
 
@@ -78,9 +89,9 @@ export class PlansComponent implements OnInit, OnDestroy {
   getType(type) {
     let type_val = '';
     if(type === 'monthly') {
-      type_val = 'month';
+      type_val = this.month;
     } else if(type === 'yearly') {
-      type_val = 'year'
+      type_val = this.year;
     }
 
     return type_val;

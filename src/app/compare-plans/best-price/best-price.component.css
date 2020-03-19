@@ -43,7 +43,7 @@ p-card h3 {
     text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;
-        font-family: OpenSans-Bold;
+    font-family: OpenSans-Bold;
     transition: .5s;
 }
 
@@ -57,7 +57,7 @@ p-card h3 {
     border-radius: 17px;
     text-transform: uppercase;
     font-weight: 500;
-        font-family: OpenSans-Bold;
+    font-family: OpenSans-Bold;
     cursor: pointer;
 }
 
@@ -68,7 +68,7 @@ p-card h3 {
     border: none;
     width: 108px;
     height: 27px;
-        font-family: OpenSans-Bold;
+    font-family: OpenSans-Bold;
     border-radius: 17px;
     text-transform: uppercase;
     font-weight: 500;
@@ -91,6 +91,9 @@ h2.price-num {
 
 .best-price .or {
     margin: 9px auto 0px auto;
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
 }
 
 .compare-btn {
@@ -105,7 +108,7 @@ h2.price-num {
     background: var(--gradiant-one) !important;
     width: 184px !important;
     margin-bottom: 2px;
-        font-family: OpenSans-Bold;
+    font-family: OpenSans-Bold;
     transition: .5s;
 }
 

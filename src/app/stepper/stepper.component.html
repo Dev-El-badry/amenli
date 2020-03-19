@@ -6,20 +6,20 @@
                 <div class="mdl-stepper-step  ">
                     <span class="num-counter  effect-on-num-counter {{ val == 'home' ? 'span-active': ''}}  effect-on-num-counter-mob ">1</span>
                     <div class="mdl-stepper-circle {{ val == 'home' ? 'active': ''}} "></div>
-                    <div class="mdl-stepper-title">Plan</div>
+                    <div class="mdl-stepper-title">{{'stepper.plan' | translate}}</div>
                     <i class="pi pi-arrow-right icon-arrow"></i>
                 </div>
                 <!-- editable-step -->
                 <div class="mdl-stepper-step  ">
                     <span class="num-counter effect-on-num-counter effect-on-num-counter-mob {{ val == 'plan' ? 'span-active': ''}}">2</span>
                     <div class="mdl-stepper-circle  {{ val == 'plan' ? 'active': ''}}"></div>
-                    <div class="mdl-stepper-title">Choose</div>
+                    <div class="mdl-stepper-title">{{'stepper.choose' | translate}}</div>
                     <i class="pi pi-arrow-right icon-arrow"></i>
                 </div>
                 <div class="mdl-stepper-step ">
                     <span class="num-counter  effect-on-num-counter effect-on-num-counter-mob {{ val == 'checkout' ? 'span-active': ''}}">3</span>
                     <div class="mdl-stepper-circle  {{ val == 'checkout' ? 'active': ''}}"></div>
-                    <div class="mdl-stepper-title">Checkout</div>
+                    <div class="mdl-stepper-title">{{ 'stepper.checkout' | translate }}</div>
                 </div>
 
             </div>

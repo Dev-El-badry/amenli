@@ -1,11 +1,11 @@
 <form class="form-group" [formGroup]="form">
     <div class="form-control">
         <label class="label-input">{{ 'quotes.brand' | translate }}</label>
-        <p-dropdown [options]="brands" class="input-field" name="brands" formControlName="brand" (onChange)="submitFormAuto($event.value, 'brand')"></p-dropdown>
+        <p-dropdown [options]="brands" [filter]="true" class="input-field" name="brands" formControlName="brand" (onChange)="submitFormAuto($event.value, 'brand')"></p-dropdown>
     </div>
     <div class="form-control">
         <label class="label-input">{{ 'quotes.price' | translate }}</label>
-        <input type="number" pInputText class="input-field" name="price" formControlName="price" (input)="submitFormAuto($event.target.value, 'price')">
+        <input type="number" step="10" id="price" pInputText class="input-field" name="price" formControlName="price" (input)="submitFormAuto($event.target.value, 'price')">
     </div>
     <div class="form-control">
         <label class="label-input">{{ 'quotes.year' | translate }}</label>
