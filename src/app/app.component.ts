@@ -11,10 +11,27 @@ export class AppComponent implements OnInit {
   constructor(private trnaslateService: TranslateConfigService) {}
 
   ngOnInit(){
-    this.trnaslateService.setLanguage('en');
-    this.trnaslateService.setDefault('en');
+    let lang = localStorage.getItem('lang');
+    console.log('HERE2');
+    if(!lang) {
+      console.log('HERE');
+      this.trnaslateService.setLanguage('ar');
+      this.trnaslateService.setDefault('ar');
+      this.trnaslateService.setDir('rtl');
+      localStorage.setItem('lang', 'ar');
+    } else {
+      let langStorage = localStorage.getItem('lang');
+      this.trnaslateService.setLanguage(langStorage);
+      this.trnaslateService.setDefault(langStorage);
 
-    this.trnaslateService.setDir('ltr');
+      if(langStorage === 'ar')
+        this.trnaslateService.setDir('rtl');
+      else if(langStorage === 'en')
+        this.trnaslateService.setDir('ltr');
+      
+    }
+
+    
     
   }
 }

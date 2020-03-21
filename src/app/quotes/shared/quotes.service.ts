@@ -5,15 +5,11 @@ import { OdooService } from 'src/app/shared/odoo.service';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/shared/shared.service';
+import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class QuotesService {
   private jsonURL = 'assets/jsonFiles/Sheet1.json';
-  private brands: any[] = [
-    {
-      label: "Choose Vehicle Type",
-      value: 0
-    }
-  ];
+  private brands: any[];
   _dataList;
   carForm: FormGroup;
   loadBrands = new Subject<any[]>();
@@ -24,8 +20,6 @@ export class QuotesService {
   loadAllCompaniesByFilter = new Subject<any>();
   loadAllCompaniesByPrice = new Subject<any>();
   private years = [
-    
-    
     { label: "2020", value: 2020 },
     { label: "2019", value: 2019 },
     { label: "2018", value: 2018 },
@@ -41,12 +35,19 @@ export class QuotesService {
   ];
 
 
-  constructor(private http: HttpClient, private odooService: OdooService, private shared: SharedService) {
+  constructor(private translate: TranslateService,private http: HttpClient, private odooService: OdooService, private shared: SharedService) {
     console.log('quotes service');
     // this.getJSON().subscribe(data => {
     //   console.log(data);
     //  });
-    
+    this.translate.get('quotes.labelTitle').subscribe(labelTitle => {
+      this.brands = [
+        {
+          label: labelTitle,
+          value: 0
+        }
+      ];
+    })
   }
 
   fetchBrandsFromService() {

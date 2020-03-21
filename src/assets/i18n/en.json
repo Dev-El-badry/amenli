@@ -18,7 +18,8 @@
         "price": "Price",
         "year": "Year",
         "car_placeholder": "Enter Your Price Car",
-        "title": "in collaboration with"
+        "title": "in collaboration with",
+        "labelTitle": "Choose Vehicle Type"
     },
     "compare": {
         "title1": "You're Almost There!",
@@ -32,7 +33,8 @@
         "egp": "EGP",
         "month": "month",
         "year": "year",
-        "": ""
+        "monthly": "Monthly",
+        "yearly": "Yearly"
 
 
     },
@@ -50,11 +52,12 @@
     },
     "nav_list": {
         "about_us": "ABOUT US",
-        "insurance_type": "INSURANCE TYPE",
+        "insurance_type": "INSURANCE",
         "claims": "CLAIMS",
         "blog": "BLOG",
         "contact_us": "CONTACT US",
         "search": "SEARCH",
+        "home": "HOME",
         "": "",
         "": ""
     },
@@ -81,5 +84,11 @@
         "choose": "Choose",
         "checkout": "Checkout",
         "": ""
+    }
+
+    ,
+    "services": {
+        "title": "Book Your Insurance Now",
+        "title2": "All Your Family will be insured the blink of an eye !Book now."
     }
 }

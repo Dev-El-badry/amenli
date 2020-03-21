@@ -1,5 +1,5 @@
 .container-custm {
-    padding-left: 12%;
+    padding-left: 2%;
     padding-right: 2%;
     margin-right: auto;
     margin-left: auto;
@@ -246,7 +246,7 @@ span.title-badge {
 }
 
 .price-num-str {
-    text-align: right !important;
+    text-align: center !important;
     font-size: 2.5rem;
     margin: 11px auto;
     font-family: OpenSans-Semibold;

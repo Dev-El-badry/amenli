@@ -177,10 +177,18 @@ span.num-counter.span-active {
     left: -40px;
 }
 
-.icon-arrow {
+.icon-arrow-right {
     position: absolute;
     top: 28%;
     right: -12px;
+    font-size: 44px !important;
+    color: var(--four-color);
+}
+
+.icon-arrow-left {
+    position: absolute;
+    top: 28%;
+    left: -12px;
     font-size: 44px !important;
     color: var(--four-color);
 }
@@ -231,9 +239,14 @@ span.num-counter.span-active {
         top: 20px !important;
         left: 24px !important;
     }
-    .icon-arrow {
+    .icon-arrow-right {
         top: 26% !important;
         right: 6px !important;
+        font-size: 34px !important;
+    }
+    .icon-arrow-left {
+        top: 26% !important;
+        left: 6px !important;
         font-size: 34px !important;
     }
 }

@@ -144,6 +144,20 @@ a#ui-tabpanel-2-label {
     font-weight: bold;
 }
 
+[dir="rtl"] .ui-tabview .ui-tabview-panels {
+    margin: auto 7px !important;
+}
+
+[dir="ltr"] .ui-tabview .ui-tabview-panels {
+    margin: 0 !important;
+}
+
+
+/* 
+body .ui-tabview .ui-tabview-panels {
+    margin: auto 7px !important;
+} */
+
 
 /* HERE */
 
@@ -231,6 +245,32 @@ label.label-input {
     text-align: left;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+[dir="rtl"] label.label-input {
+    text-align: right !important;
+    margin: 5px;
+}
+
+[dir="ltr"] label.label-input {
+    text-align: left !important;
+    margin: auto;
+}
+
+[dir="rtl"] .plans .features {
+    text-align: right !important;
+}
+
+[dir="ltr"] .plans .features {
+    text-align: left !important;
+}
+
+[dir="ltr"] .plans p-selectbutton {
+    direction: ltr !important;
+}
+
+[dir="rtl"] .plans p-selectbutton {
+    direction: ltr !important;
 }
 
 input.input-field.ui-inputtext.ui-corner-all.ui-state-default.ui-widget {

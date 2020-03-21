@@ -14,6 +14,8 @@ export class StepperComponent implements OnInit {
   constructor(private route: ActivatedRoute) { 
     
   }
+
+  get lang() {return localStorage.getItem('lang');}
   
   ngOnInit() {
     this.items = [

@@ -15,12 +15,21 @@ export class NavLinksComponent implements OnInit {
     this.direction = this.translate.getDir();
   }
 
+  get lang() { return localStorage.getItem('lang') }
+
   changeLang(lang) {
     this.translate.setLanguage(lang);
-    if(lang == 'ar')
+    localStorage.setItem('lang', lang);
+    window.location.reload();
+    if(lang == 'ar'){
+     
       this.translate.setDir('rtl');
-    else
+    }
+    else {
       this.translate.setDir('ltr');
+    }
+
+   
   }
 
 }

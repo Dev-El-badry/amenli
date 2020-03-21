@@ -26,10 +26,12 @@ export class PlansComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.options = [
-      {name:'Monthly', value:'monthly'},
-      {name:'Yearly', value:'yearly'},
-    ];
+    this.translate.get('compare').subscribe(option=> {
+      this.options= [
+        {name: option.monthly, value:'monthly'},
+        {name: option.yearly, value:'yearly'},
+      ];
+    })
 
     this.params.paramMap.subscribe(paramMap => {
       this.planSelected = paramMap.get('plan_selected');

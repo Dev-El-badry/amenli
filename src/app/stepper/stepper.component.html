@@ -7,14 +7,28 @@
                     <span class="num-counter  effect-on-num-counter {{ val == 'home' ? 'span-active': ''}}  effect-on-num-counter-mob ">1</span>
                     <div class="mdl-stepper-circle {{ val == 'home' ? 'active': ''}} "></div>
                     <div class="mdl-stepper-title">{{'stepper.plan' | translate}}</div>
-                    <i class="pi pi-arrow-right icon-arrow"></i>
+
+                    <i [ngClass]="{
+                        'pi': true, 
+                        'pi-arrow-right': lang == 'en', 
+                        'pi-arrow-left': lang == 'ar', 
+                        'icon-arrow-right': lang == 'en', 
+                        'icon-arrow-left': lang == 'ar'
+                        }"></i>
                 </div>
                 <!-- editable-step -->
                 <div class="mdl-stepper-step  ">
                     <span class="num-counter effect-on-num-counter effect-on-num-counter-mob {{ val == 'plan' ? 'span-active': ''}}">2</span>
                     <div class="mdl-stepper-circle  {{ val == 'plan' ? 'active': ''}}"></div>
                     <div class="mdl-stepper-title">{{'stepper.choose' | translate}}</div>
-                    <i class="pi pi-arrow-right icon-arrow"></i>
+
+                    <i [ngClass]="{
+                        'pi': true, 
+                        'pi-arrow-right': lang == 'en', 
+                        'pi-arrow-left': lang == 'ar', 
+                        'icon-arrow-right': lang == 'en', 
+                        'icon-arrow-left': lang == 'ar'
+                        }"></i>
                 </div>
                 <div class="mdl-stepper-step ">
                     <span class="num-counter  effect-on-num-counter effect-on-num-counter-mob {{ val == 'checkout' ? 'span-active': ''}}">3</span>

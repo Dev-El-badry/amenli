@@ -5,10 +5,12 @@ import { PlansComponent } from './compare-plans/plans/plans.component';
 import { ComparePlansComponent } from './compare-plans/compare-plans.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ChooseComponent } from './compare-plans/choose/choose.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  {path: '', component: QuotesComponent},
+  { path: '', component: HomeComponent },
+  {path: 'insurance', component: QuotesComponent},
   {path: 'plan/choose/:company_name/:plan_selected/:brandId/:price', component: ComparePlansComponent},
   {path: 'checkout/payment/:company_name/:plan_selected/:brandId/:price', component: CheckoutComponent},
   {path: 'companies/choose/:brandId/:price', component: ChooseComponent},
