@@ -2,3 +2,30 @@
     text-align: center;
     margin: 40px auto;
 }
+
+.service {
+    position: relative;
+    cursor: pointer;
+}
+
+.service:hover .overlay {
+    visibility: visible;
+}
+
+.overlay {
+    position: absolute;
+    top: 8px;
+    left: 35px;
+    width: 59%;
+    height: 53%;
+    background: #41599D;
+    border-radius: 50%;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.overlay i {
+    line-height: 100px;
+    font-size: 40px;
+    color: #fff;
+}
