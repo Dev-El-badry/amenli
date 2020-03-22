@@ -70,8 +70,8 @@
 
             </div>
         </div> -->
-        <div class="p-md-10 middle-section res-mobile2  ">
-            <div class="top-head">
+        <div class="p-md-10 middle-section res-mobile2  " >
+            <div class="top-head" >
                 <ul class="nav-list">
                     <li class="nav-item">{{ 'compare.sort'| translate }}</li>
 
@@ -94,13 +94,15 @@
 
                         <p-card>
                             <div class="p-grid" (window:resize)="onResize($event)">
-                                <div [ngClass]="[breakpoint]">
+                                <div [ngClass]="[breakpoint]" >
                                     <!-- <div class="thumbnail-container" 
                                   
                                     [ngStyle]="{'background-image': getImage(convertObjectToValues(convertObjectToValues(items)[j])[1])}">
                                   
                                     </div> -->
-                                    <img [src]="convertObjectToValues(convertObjectToValues(convertObjectToValues(items)[j]))[1]">
+                                    
+                                    <img *ngIf="medical === 'medical'"  [src]="convertObjectToValues(items)[j].image">
+                                    <img *ngIf="medical !== 'medical'"  [src]="convertObjectToValues(convertObjectToValues(convertObjectToValues(items)[j]))[1]">
                                 </div>
 
 

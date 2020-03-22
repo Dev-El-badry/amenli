@@ -8,7 +8,8 @@
         <div class=" nav-item " (click)="onClose()"><a href="# ">{{ 'nav_list.claims' | translate }}</a></div>
         <div class="nav-item " (click)="onClose()"><a href="# ">{{ 'nav_list.blog' | translate }}</a></div>
         <div class=" nav-item " (click)="onClose()"><a href="# ">{{ 'nav_list.contact_us' | translate }}</a></div>
-        <div class=" nav-item " (click)="onClose()"><a href="# ">عربى</a></div>
+        <div class=" nav-item " (click)="onClose()" *ngIf="lang == 'en'"><a href="# ">عربى</a></div>
+        <div class=" nav-item " (click)="onClose()" *ngIf="lang == 'ar'"><a href="# ">English</a></div>
 
     </div>
 </p-sidebar>

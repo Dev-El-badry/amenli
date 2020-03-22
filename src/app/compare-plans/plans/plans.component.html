@@ -27,7 +27,7 @@
 
 
 
-                <ul class="features">
+                <ul class="features" dir="auto" *ngIf="medical !== 'medical'">
                     <li class="feature" *ngFor="let feature of convertArray(convertObjectToValues(itm)[0]['benefit'].length); let j = index">
 
                         <span>
@@ -44,6 +44,12 @@
                         {{ convertObjectToKeys(convertObjectToValues(itm)[0]["benefit"][1])[0] }}
 
                     </li>
+
+                </ul>
+                <ul class="features" dir="auto" *ngIf="medical === 'medical'">
+                        <li class="feature" style="text-align:center;" *ngFor="let feature of convertObjectToValues(itm)[0]['benefit']">
+                                {{feature}}
+                        </li>
 
                 </ul>
 

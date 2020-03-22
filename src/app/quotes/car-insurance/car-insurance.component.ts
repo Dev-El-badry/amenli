@@ -12,7 +12,7 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
   brands;
   years;
   loadBrandsSub: Subscription;
-  
+
   form: FormGroup;
   data = {
     brand: 0,
@@ -23,12 +23,12 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    //create form
+    // create form
     this.createCarForm();
 
     // this.brands = this.quotesService.getBrands();
     this.years = this.quotesService.getYears();
-  
+
     this.loadBrandsSub = this.quotesService.loadBrands.subscribe(brands => {
       this.brands = brands;
       console.log('brands', this.brands);
@@ -36,13 +36,12 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
 
     this.quotesService.fetchBrandsFromService();
 
-    this.translate.get('quotes.car_placeholder').subscribe((text:string) => {
-      (<HTMLInputElement>document.getElementById('price')).placeholder = text;
+    this.translate.get('quotes.car_placeholder').subscribe((text: string) => {
+      (document.getElementById('price') as HTMLInputElement).placeholder = text;
     });
   }
 
-  createCarForm(){
-    
+  createCarForm() {
     this.form =  new FormGroup({
       brand: new FormControl(0, {
         updateOn: 'blur',
@@ -56,7 +55,7 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
         updateOn: 'blur',
         validators: [Validators.required]
       })
-    })
+    });
   }
 
   // Form
@@ -65,42 +64,42 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
    // this.afterCheckForm();
   }
 
-  //submit form auto
-  submitFormAuto(value:any, type: 'brand' | 'price' | 'year') {
-    
-    if(type === 'brand') {
+  // submit form auto
+  submitFormAuto(value: any, type: 'brand' | 'price' | 'year') {
+
+    if (type === 'brand') {
       this.data.brand = value;
     }
 
-    if(type === 'price') {
+    if (type === 'price') {
       this.data.price = parseInt(value);
     }
 
-    if(type === 'year') {
+    if (type === 'year') {
       this.data.year = value;
     }
 
-    if((this.data.price != null) && (this.data.price) != 0 && (this.data.brand != null) && (this.data.brand != 0 ) && (this.data.year != null) && (this.data.year != 0 ) ) {
+    if ((this.data.price != null) && (this.data.price) !== 0 && (this.data.brand != null) && (this.data.brand !== 0 ) && (this.data.year != null) && (this.data.year !== 0 ) ) {
       console.log(this.data);
       this.quotesService.getDataList({id: this.data.brand, price: this.data.price});
     }
-    
+
   }
 
   selectYear(event) {
     console.log(event.value);
-    
+
   }
 
   getPrice(val) {
 
-    let result =val;
+    const result = val;
     console.log('price', result);
     // this.afterCheckForm();
   }
 
   afterCheckForm(data) {
-    if(!this.form.valid) {
+    if (!this.form.valid) {
       console.log('FORM FALSE');
       return;
     }
@@ -108,11 +107,11 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
     // console.log(this.data);
   }
 
-  //End Form
+  // End Form
 
   onSubmit() {
     console.log(this.form);
-    if(!this.form.valid) {
+    if (!this.form.valid) {
       console.log('FALSE');
     }
 
@@ -120,6 +119,6 @@ export class CarInsuranceComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.loadBrandsSub) this.loadBrandsSub.unsubscribe();
+    if (this.loadBrandsSub) { this.loadBrandsSub.unsubscribe(); }
   }
 }

@@ -5,9 +5,9 @@ import { Buffer } from 'buffer';
 import { Subscription } from 'rxjs';
 import { SharedService } from '../../shared/shared.service';
 @Component({
-  selector: "app-choose",
-  templateUrl: "./choose.component.html",
-  styleUrls: ["./choose.component.css"]
+  selector: 'app-choose',
+  templateUrl: './choose.component.html',
+  styleUrls: ['./choose.component.css']
 })
 export class ChooseComponent implements OnInit, OnDestroy {
   options: any;
@@ -21,29 +21,53 @@ export class ChooseComponent implements OnInit, OnDestroy {
   global = window;
   plans;
   breakpoint;
-  valChk: boolean = true;
+  valChk = true;
+  medical;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private quoteService: QuotesService,
-    private shared : SharedService
+    private shared: SharedService
   ) {}
 
   ngOnInit() {
-    this.breakpoint = window.innerWidth >= 900 ? "p-col" : "p-col-6";
+    if (localStorage.getItem('medical') === 'medical') {
+      this.medical = localStorage.getItem('medical');
+      this.breakpoint = window.innerWidth >= 900 ? 'p-col' : 'p-col-6';
+      this.plans = [
+        { label: 'ALL', value: 'all' },
+        { label: 'GOLD', value: 'gold' },
+        { label: 'PLATINUM', value: 'platinum' },
+        { label: 'DIAMOND', value: 'diamond' }
+      ];
+      this.options = {
+        center: { lat: 36.890257, lng: 30.707417 },
+        zoom: 12
+      };
+
+      this.loadItemsSubs = this.quoteService.loadAllCompanies.subscribe(res => {
+        this.items = res;
+        console.log('item ==> ', this.items);
+      });
+      this.quoteService.getAllCompaniesData({
+        dob: parseInt(localStorage.getItem('dob')),
+        sort: 'zero'
+      });
+    } else {
+    this.breakpoint = window.innerWidth >= 900 ? 'p-col' : 'p-col-6';
     this.plans = [
-      { label: "ALL", value: "all" },
-      { label: "GOLD", value: "gold" },
-      { label: "PLATINUM", value: "platinum" },
-      { label: "DIAMOND", value: "diamond" }
+      { label: 'ALL', value: 'all' },
+      { label: 'GOLD', value: 'gold' },
+      { label: 'PLATINUM', value: 'platinum' },
+      { label: 'DIAMOND', value: 'diamond' }
     ];
     this.route.paramMap.subscribe(paramMap => {
-      if (!paramMap.has("brandId") && !paramMap.has("price")) {
-        this.router.navigateByUrl("/");
+      if (!paramMap.has('brandId') && !paramMap.has('price')) {
+        this.router.navigateByUrl('/');
       }
 
-      this.brandId = parseInt(paramMap.get("brandId"));
-      this.price = parseInt(paramMap.get("price"));
+      this.brandId = parseInt(paramMap.get('brandId'));
+      this.price = parseInt(paramMap.get('price'));
     });
 
     this.options = {
@@ -55,19 +79,21 @@ export class ChooseComponent implements OnInit, OnDestroy {
       this.items = res;
       console.log('item ==> ', this.items);
     });
+
     this.quoteService.getAllCompaniesData({
       id: this.brandId,
       price: this.price
     });
   }
+  }
 
   onClick(company_name, plan, brandId, price) {
     console.log(company_name, plan, brandId, price);
-    this.router.navigate(["/", "plan", "choose", company_name, plan, brandId, price]);
+    this.router.navigate(['/', 'plan', 'choose', company_name, plan, brandId, price]);
   }
 
   onResize(event) {
-    this.breakpoint = event.target.innerWidth >= 900 ? "p-col" : "p-col-6";
+    this.breakpoint = event.target.innerWidth >= 900 ? 'p-col' : 'p-col-6';
   }
 
   counter(i: number) {
@@ -77,23 +103,25 @@ export class ChooseComponent implements OnInit, OnDestroy {
   getRateString(rate: number) {
     let res: string;
     if (rate >= 4) {
-      res = "Excellent!";
+      res = 'Excellent!';
     } else if (rate >= 3) {
-      res = "Very Good!";
+      res = 'Very Good!';
     } else if (rate < 3) {
-      res = "Good!";
+      res = 'Good!';
     }
 
     return res;
   }
 
   convertObjectToKeys(obj: object) {
-    if(obj)
+    if (obj) {
       return Object.keys(obj);
+    }
   }
   convertObjectToValues(obj: object) {
-    if(obj)
+    if (obj) {
       return Object.values(obj);
+    }
   }
 
   display_image(enCode: string) {
@@ -101,30 +129,30 @@ export class ChooseComponent implements OnInit, OnDestroy {
   }
 
   getColor(type) {
-    let color_str = "";
-    if (type == "cubes") {
-      color_str = "#e5e4e2";
-    } else if (type == "coins") {
-      color_str = "gold";
-    } else if (type == "gem") {
-      color_str = "#B9F2FF";
+    let color_str = '';
+    if (type === 'cubes') {
+      color_str = '#e5e4e2';
+    } else if (type === 'coins') {
+      color_str = 'gold';
+    } else if (type === 'gem') {
+      color_str = '#B9F2FF';
     }
 
     return color_str;
   }
 
   getImage(imgUrl) {
-    return "url(" + imgUrl + ")";
+    return 'url(' + imgUrl + ')';
   }
 
   sort(val) {
     this.valChk = !val;
 
-    let sort = "zero";
-    if (val == true) {
-      sort = "zero";
+    let sort = 'zero';
+    if (val === true) {
+      sort = 'zero';
     } else {
-      sort = "not-zero";
+      sort = 'not-zero';
     }
     this.loadItemsByPriceSubs = this.quoteService.loadAllCompaniesByPrice.subscribe(
       res => {
@@ -137,7 +165,7 @@ export class ChooseComponent implements OnInit, OnDestroy {
 
   getByPlan(val) {
     console.log(val);
-    if (val == "all") {
+    if (val === 'all') {
       this.loadItemsSubs = this.quoteService.loadAllCompanies.subscribe(res => {
         this.items = res;
       });

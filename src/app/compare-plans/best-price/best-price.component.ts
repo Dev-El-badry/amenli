@@ -11,20 +11,20 @@ import { SharedService } from 'src/app/shared/shared.service';
 })
 export class BestPriceComponent implements OnInit, OnDestroy {
   display = false;
-  length: number = 0;
-  price: number = 0;
+  length = 0;
+  price = 0;
   loadPriceSub: Subscription;
   plan_selected;
   loadNumCompaniesSub: Subscription;
   company_name: string;
   company_selected: string;
-  @ViewChild('f', {static: true}) form:NgForm;
-  constructor(private quoteService: QuotesService, private router: Router, private shared:SharedService) { }
+  @ViewChild('f', {static: true}) form: NgForm;
+  constructor(private quoteService: QuotesService, private router: Router, private shared: SharedService) { }
 
   ngOnInit() {
-   
+
     this.loadPriceSub = this.quoteService.loadLowestPrice.subscribe(res => {
-     
+
       this.price = res.price;
       this.company_name = res.name;
       this.plan_selected = res.type;
@@ -35,30 +35,37 @@ export class BestPriceComponent implements OnInit, OnDestroy {
     });
 
     this.quoteService.fetchLowestPrice();
-  
+
   }
 
   showDialog() {
-    this.display=true;
+    this.display = true;
   }
 
 
-  onSubmit(form:NgForm) {
-    if(!form.valid) {
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
       console.log('form invalid');
       return;
     }
-    console.log(form.value.price);
-    console.log('Successs');
-    console.log(this.plan_selected);
-  
-    localStorage.setItem('brandId', this.quoteService._dataList.id);
-    localStorage.setItem('price', this.quoteService._dataList.price);
+    if (localStorage.getItem('medical') === 'medical') {
+      localStorage.setItem('dob', this.quoteService._dataList.dob);
+      this.router.navigate(['/', 'plan', 'choose',
+      this.company_name, this.plan_selected ,
+      this.quoteService._dataList.dob,
+      ]);
+    } else {
+      console.log(form.value.price);
+      console.log('Successs');
+      console.log(this.plan_selected);
+      localStorage.setItem('brandId', this.quoteService._dataList.id);
+      localStorage.setItem('price', this.quoteService._dataList.price);
 
-    this.router.navigate(['/','plan', 'choose', 
-    this.company_name, this.plan_selected , 
-    this.quoteService._dataList.id,
-     this.quoteService._dataList.price.toString()]);
+      this.router.navigate(['/', 'plan', 'choose',
+      this.company_name, this.plan_selected ,
+      this.quoteService._dataList.id,
+      this.quoteService._dataList.price.toString()]);
+    }
   }
 
   validPrice() {
@@ -66,17 +73,23 @@ export class BestPriceComponent implements OnInit, OnDestroy {
   }
 
   onClick() {
-    const dataList = this.quoteService._dataList;
-    localStorage.setItem('brandId', dataList.id);
-    localStorage.setItem('price', dataList.price);
-    this.router.navigate(["/", 'companies', 'choose', dataList.id, dataList.price]);
+    if (localStorage.getItem('medical') === 'medical') {
+      const dataList = this.quoteService._dataList;
+      localStorage.setItem('dob', dataList.dob);
+      this.router.navigate(['/', 'companies', 'choose', dataList.dob]);
+    } else {
+      const dataList = this.quoteService._dataList;
+      localStorage.setItem('brandId', dataList.id);
+      localStorage.setItem('price', dataList.price);
+      this.router.navigate(['/', 'companies', 'choose', dataList.id, dataList.price]);
     // let data = { plans_selected: this.company_selected };
     // this.shared.saveInLocalStorage(data);
     // this.router.navigate(['/','plan', 'choose', this.company_name, 'gold']);
   }
+  }
 
   ngOnDestroy() {
-    if(this.loadPriceSub) this.loadPriceSub.unsubscribe();
+    if (this.loadPriceSub) { this.loadPriceSub.unsubscribe(); }
   }
 
 }

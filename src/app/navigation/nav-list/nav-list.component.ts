@@ -11,6 +11,8 @@ export class NavListComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  get lang() { return localStorage.getItem('lang') }
 
   sidenavClosed() {
     console.log('weel done');

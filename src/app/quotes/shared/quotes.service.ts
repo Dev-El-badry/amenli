@@ -5,15 +5,11 @@ import { OdooService } from 'src/app/shared/odoo.service';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/shared/shared.service';
+import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class QuotesService {
   private jsonURL = 'assets/jsonFiles/Sheet1.json';
-  private brands: any[] = [
-    {
-      label: 'Choose Vehicle Type',
-      value: 0
-    }
-  ];
+  private brands: any[];
   _dataList;
   carForm: FormGroup;
   loadBrands = new Subject<any[]>();
@@ -24,8 +20,6 @@ export class QuotesService {
   loadAllCompaniesByFilter = new Subject<any>();
   loadAllCompaniesByPrice = new Subject<any>();
   private years = [
-
-
     { label: '2020', value: 2020 },
     { label: '2019', value: 2019 },
     { label: '2018', value: 2018 },
@@ -56,12 +50,19 @@ export class QuotesService {
   ];
 
 
-  constructor(private http: HttpClient, private odooService: OdooService, private shared: SharedService) {
+  constructor(private translate: TranslateService, private http: HttpClient, private odooService: OdooService, private shared: SharedService) {
     console.log('quotes service');
     // this.getJSON().subscribe(data => {
     //   console.log(data);
     //  });
-
+    this.translate.get('quotes.labelTitle').subscribe(labelTitle => {
+      this.brands = [
+        {
+          label: labelTitle,
+          value: 0
+        }
+      ];
+    });
   }
 
   fetchBrandsFromService() {
@@ -70,8 +71,10 @@ export class QuotesService {
     'search_read', data).subscribe(res => {
         res.forEach(record => {
           const obj = {};
-          obj.value = record.id;
-          obj.label = record.brand;
+          const key1 = 'value';
+          const key2 = 'label';
+          obj[key1] = record.id;
+          obj[key2] = record.brand;
           this.brands.push(obj);
 
         });
@@ -100,29 +103,40 @@ export class QuotesService {
   }
 
   getAllCompanies() {
+    if (localStorage.getItem('medical') === 'medical') {
+      const data = {paramlist: {data: this._dataList}};
+      this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
+      'sort_medical', data).subscribe(res => {
+        if (this._dataList) {
+          console.log(res);
+          this.loadAllCompanies.next(res);
+          this.loadNumCompanies.next(Object.keys(res).length);
+        }
+      }, error => console.log(error));
+    } else {
+      const data = {paramlist: {data: this._dataList}};
+      this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
+      'get_price', data).subscribe(res => {
+        // console.log('res all', res);
+        // console.log ('result  image 2 => ', Object.values(Object.values(Object.values(res)[0]))[0]);
 
-    const data = {paramlist: {data: this._dataList}};
-    this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
-    'get_price', data).subscribe(res => {
-      // console.log('res all', res);
-      // console.log ('result  image 2 => ', Object.values(Object.values(Object.values(res)[0]))[0]);
-
-      // for(let i in res) {
-      //   console.log ('result => ', Object.values(res)[i].plan);
-      //   for(let j in Object.values(res)[i].plan) {
-      //     console.log ('result  name 2 => ', Object.keys(Object.values(Object.values(res)[i].plan)[j])[0]);
-      //     console.log ('result  month_price 2 => ', Object.values(Object.values(Object.values(res)[i].plan)[j])[0]["month_price"]);
-      //     console.log ('result  icons 2 => ', Object.values(Object.values(Object.values(res)[i].plan)[j])[0]["icon"]);
-      //   }
-      // }
-      if (this._dataList) {
-        // console.log('data compare company', JSON.stringify(res));
-      // console.log('data json', res);
-      //   console.log('length', Object.values(Object.values(res)[1])[1]);
-      this.loadAllCompanies.next(res);
-      this.loadNumCompanies.next(Object.keys(res).length);
-      }
-    }, error => console.log(error));
+        // for(let i in res) {
+        //   console.log ('result => ', Object.values(res)[i].plan);
+        //   for(let j in Object.values(res)[i].plan) {
+        //     console.log ('result  name 2 => ', Object.keys(Object.values(Object.values(res)[i].plan)[j])[0]);
+        //     console.log ('result  month_price 2 => ', Object.values(Object.values(Object.values(res)[i].plan)[j])[0]["month_price"]);
+        //     console.log ('result  icons 2 => ', Object.values(Object.values(Object.values(res)[i].plan)[j])[0]["icon"]);
+        //   }
+        // }
+        if (this._dataList) {
+          // console.log('data compare company', JSON.stringify(res));
+        // console.log('data json', res);
+        //   console.log('length', Object.values(Object.values(res)[1])[1]);
+        this.loadAllCompanies.next(res);
+        this.loadNumCompanies.next(Object.keys(res).length);
+        }
+      }, error => console.log(error));
+    }
   }
 
   fetchLowestPrice() {

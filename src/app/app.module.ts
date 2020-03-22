@@ -41,6 +41,15 @@ import { UIService } from './shared/ui.service';
 import { CollbrationsService } from './collbrations/collbrations.service';
 import {MessageService} from 'primeng/api';
 import { TranslateConfigService } from './shared/translate-config.service';
+import { HomeComponent } from './home/home.component';
+import { VideoHeaderComponent } from './home/video-header/video-header.component';
+import { ServicesComponent } from './home/services/services.component';
+import { StepsBookingComponent } from './home/steps-booking/steps-booking.component';
+import { WhyComponent } from './home/why/why.component';
+import { TestimonialsComponent } from './home/testimonials/testimonials.component';
+import { PartnersComponent } from './home/partners/partners.component';
+import { ContactusComponent } from './home/contactus/contactus.component';
+import { FooterComponent } from './home/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +73,15 @@ import { TranslateConfigService } from './shared/translate-config.service';
     OrderSummaryComponent,
     ChooseComponent,
     NavLinksComponent,
+    HomeComponent,
+    VideoHeaderComponent,
+    ServicesComponent,
+    StepsBookingComponent,
+    WhyComponent,
+    TestimonialsComponent,
+    PartnersComponent,
+    ContactusComponent,
+    FooterComponent,
     
   ],
   imports: [

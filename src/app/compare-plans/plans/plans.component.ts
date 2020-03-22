@@ -22,14 +22,17 @@ export class PlansComponent implements OnInit, OnDestroy {
   plans;
   month: string;
   year: string;
-  constructor(private translate: TranslateService ,private router: Router, private params: ActivatedRoute, private compareModelService: CompareModelService) { }
+  medical: string;
+  constructor(private translate: TranslateService , private router: Router, private params: ActivatedRoute, private compareModelService: CompareModelService) { }
 
   ngOnInit() {
-
-    this.options = [
-      {name:'Monthly', value:'monthly'},
-      {name:'Yearly', value:'yearly'},
-    ];
+    this.medical = localStorage.getItem('medical');
+    this.translate.get('compare').subscribe(option => {
+      this.options = [
+        {name: option.monthly, value: 'monthly'},
+        {name: option.yearly, value: 'yearly'},
+      ];
+    });
 
     this.params.paramMap.subscribe(paramMap => {
       this.planSelected = paramMap.get('plan_selected');
@@ -38,11 +41,13 @@ export class PlansComponent implements OnInit, OnDestroy {
       this.price = paramMap.get('price');
 
       this.loadPlansSub = this.compareModelService.loadPlans.subscribe(res => {
-        console.log('plans',Object.values(res)[0]["price"]);
+        const key = 'price';
+        console.log('plans', Object.values(res)[0][key]);
         this.plans = res;
+        console.log(res);
       });
 
-      console.log('Here',this.plans);
+      console.log('Here', this.plans);
       this.compareModelService.getPlans(this.companyName, this.brandId, this.price);
     });
 
@@ -60,37 +65,39 @@ export class PlansComponent implements OnInit, OnDestroy {
   getPriceFromObject(type: any, numTarget) {
     console.log(type, numTarget);
     let typeStr = '';
-    if(type === 'monthly') {
-      typeStr = Object.values(this.plans.plan[numTarget])[0]["month_price"]; 
-    } else if(type === 'yearly'){
-      typeStr =Object.values(this.plans.plan[numTarget])[0]["price"]; 
+    if (type === 'monthly') {
+      const key = 'month_price';
+      typeStr = Object.values(this.plans.plan[numTarget])[0][key];
+    } else if (type === 'yearly') {
+      const key = 'price';
+      typeStr = Object.values(this.plans.plan[numTarget])[0][key];
     }
     console.log(typeStr);
-    
+
 
     return typeStr;
   }
 
   getChangeValue(val, target) {
-    let ele = document.querySelector(".ele-"+target+"");
-    let ele2 = document.querySelector(".type-"+target+"");
-    let text_val = this.getType(val);
-    let text = this.getPriceFromObject(val, target);
-    
+    const ele = document.querySelector('.ele-' + target + '');
+    const ele2 = document.querySelector('.type-' + target + '');
+    const text_val = this.getType(val);
+    const text = this.getPriceFromObject(val, target);
+
 
     ele.textContent = this.formatNumber(parseInt(text));
     ele2.textContent = text_val;
-  } 
+  }
 
   formatNumber(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   }
 
   getType(type) {
     let type_val = '';
-    if(type === 'monthly') {
+    if (type === 'monthly') {
       type_val = this.month;
-    } else if(type === 'yearly') {
+    } else if (type === 'yearly') {
       type_val = this.year;
     }
 
@@ -98,33 +105,35 @@ export class PlansComponent implements OnInit, OnDestroy {
   }
 
   convertObjectToKeys(obj: object) {
-    if(obj)
+    if (obj) {
       return Object.keys(obj);
+    }
   }
   convertObjectToValues(obj: object) {
-    if(obj)
+    if (obj) {
       return Object.values(obj);
+    }
   }
 
   onClick(company_name, plan_selected, brandId, price) {
-    this.router.navigate(['/','checkout', 'payment', company_name,plan_selected,brandId,price]);
+    this.router.navigate(['/', 'checkout', 'payment', company_name, plan_selected, brandId, price]);
   }
 
 
   chk_val_is_ture_or_yes(val: string | boolean) {
-    if((val === true) || (val === 'Yes')) {
+    if ((val === true) || (val === 'Yes')) {
       return true;
     }
   }
 
   chk_val_is_false_or_no(val: string | boolean) {
-    if((val === false) || (val === 'No')) {
+    if ((val === false) || (val === 'No')) {
       return true;
     }
   }
 
   chk_if_not_true_and_false(val: string | boolean) {
-    if((val != true) && (val != 'No') && (val != 'Yes') && (val != false)) {
+    if ((val !== true) && (val !== 'No') && (val !== 'Yes') && (val !== false)) {
       return true;
     }
   }
@@ -134,7 +143,7 @@ export class PlansComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.loadPlansSub) this.loadPlansSub.unsubscribe();
+    if (this.loadPlansSub) { this.loadPlansSub.unsubscribe(); }
   }
 
 }
