@@ -10,7 +10,7 @@ export class QuotesService {
   private jsonURL = 'assets/jsonFiles/Sheet1.json';
   private brands: any[] = [
     {
-      label: "Choose Vehicle Type",
+      label: 'Choose Vehicle Type',
       value: 0
     }
   ];
@@ -24,20 +24,35 @@ export class QuotesService {
   loadAllCompaniesByFilter = new Subject<any>();
   loadAllCompaniesByPrice = new Subject<any>();
   private years = [
-    
-    
-    { label: "2020", value: 2020 },
-    { label: "2019", value: 2019 },
-    { label: "2018", value: 2018 },
-    { label: "2017", value: 2017 },
+
+
+    { label: '2020', value: 2020 },
+    { label: '2019', value: 2019 },
+    { label: '2018', value: 2018 },
+    { label: '2017', value: 2017 },
   ];
 
   private ages = [
-      
-    { label: "20", value: "20" },
-    { label: "25", value: "25" },
-    { label: "30", value: "30" },
-    { label: "35", value: "35" },
+
+    { label: '0 - 17', value: 10 },
+    { label: '18 - 24', value: 20 },
+    { label: '25 - 29', value: 27 },
+    { label: '30 - 34', value: 32 },
+    { label: '35 - 39', value: 37 },
+    { label: '40 - 44', value: 42 },
+    { label: '45 - 49', value: 47 },
+    { label: '50 - 54', value: 52 },
+    { label: '55 - 59', value: 57 },
+    { label: '60 - 64', value: 62 },
+  ];
+
+  private gender = [
+      { label: 'MALE', value: 'M' },
+      { label: 'FEMALE', value: 'F' },
+  ];
+
+  private works = [
+    { label: 'Management Operations', value: 'Mangement' },
   ];
 
 
@@ -46,19 +61,19 @@ export class QuotesService {
     // this.getJSON().subscribe(data => {
     //   console.log(data);
     //  });
-    
+
   }
 
   fetchBrandsFromService() {
-    const data = {paramlist: {filter:[],need:[]}};
+    const data = {paramlist: {filter: [], need: []}};
     this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'car.brands',
     'search_read', data).subscribe(res => {
         res.forEach(record => {
-          let obj = {};
-          obj["value"] = record.id;
-          obj["label"] = record.brand;
+          const obj = {};
+          obj.value = record.id;
+          obj.label = record.brand;
           this.brands.push(obj);
-        
+
         });
         this.loadBrands.next([...this.brands]);
         //  return [...this.brands];
@@ -77,16 +92,16 @@ export class QuotesService {
   }
 
   getDataList(dataList) {
-    console.log("data list", dataList);
+    console.log('data list', dataList);
     this._dataList = dataList;
-    
+
     this.fetchLowestPrice();
     this.getAllCompanies();
   }
 
   getAllCompanies() {
-   
-    const data ={paramlist: {data: this._dataList}};
+
+    const data = {paramlist: {data: this._dataList}};
     this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
     'get_price', data).subscribe(res => {
       // console.log('res all', res);
@@ -100,8 +115,8 @@ export class QuotesService {
       //     console.log ('result  icons 2 => ', Object.values(Object.values(Object.values(res)[i].plan)[j])[0]["icon"]);
       //   }
       // }
-      if(this._dataList) {
-        //console.log('data compare company', JSON.stringify(res));
+      if (this._dataList) {
+        // console.log('data compare company', JSON.stringify(res));
       // console.log('data json', res);
       //   console.log('length', Object.values(Object.values(res)[1])[1]);
       this.loadAllCompanies.next(res);
@@ -111,41 +126,55 @@ export class QuotesService {
   }
 
   fetchLowestPrice() {
-    const data ={paramlist: {data: this._dataList}};
-    console.log('data list', this._dataList);
-    this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
-    'get_lowest_price', data).subscribe(res => {
-      if(this._dataList) {
-       console.log('lowest price',res);
-       console.log(this._dataList);
+    if (localStorage.getItem('medical') === 'medical') {
+      const data = {paramlist: {data: this._dataList}};
+      console.log('data list', this._dataList);
+      this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
+      'get_medical_lowest_price', data).subscribe(res => {
+        if (this._dataList) {
+        console.log('lowest price', res);
+        console.log(this._dataList);
         this.loadLowestPrice.next(res);
-      
-      }
-    }, error => console.log(error));
+
+        }
+      }, error => console.log(error));
+    } else {
+      const data = {paramlist: {data: this._dataList}};
+      console.log('data list', this._dataList);
+      this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
+      'get_lowest_price', data).subscribe(res => {
+        if (this._dataList) {
+        console.log('lowest price', res);
+        console.log(this._dataList);
+        this.loadLowestPrice.next(res);
+
+        }
+      }, error => console.log(error));
+    }
   }
 
   sortCompaniesByPrice(brandId: number, price: number, sort: string) {
-    const dataList = {id: brandId, price: price, sort: sort};
-    console.log('data list',dataList);
-    const data ={paramlist: {data: dataList}};
+    const dataList = {id: brandId, price, sort};
+    console.log('data list', dataList);
+    const data = {paramlist: {data: dataList}};
     this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
     'sort', data).subscribe(res => {
-      if(res) {
+      if (res) {
         console.log(res);
         this.loadAllCompaniesByPrice.next(res);
         this.loadNumCompaniesByPrice.next(Object.keys(res).length);
-       
+
       }
     }, error => console.log(error));
   }
   getByPlan(brandId: number, price: number, value_filter: string) {
-    const dataList = { id: brandId, price: price, filter: value_filter };
-   
-    const data ={paramlist: {data: dataList}};
+    const dataList = { id: brandId, price, filter: value_filter };
+
+    const data = {paramlist: {data: dataList}};
     this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
     'filter', data).subscribe(res => {
-      if(res) {
-       
+      if (res) {
+
          this.loadAllCompaniesByFilter.next(res);
       }
     }, error => console.log(error));
@@ -153,7 +182,7 @@ export class QuotesService {
 
 
 
-  
+
 
 
   getBrands() {
@@ -166,6 +195,13 @@ export class QuotesService {
 
   getAges() {
     return [...this.ages];
+  }
+
+  getGender() {
+    return [...this.gender];
+  }
+  getWorks() {
+    return [...this.works];
   }
 
   public getJSON(): Observable<any> {

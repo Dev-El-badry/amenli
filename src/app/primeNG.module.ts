@@ -14,6 +14,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {GMapModule} from 'primeng/gmap';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
+import {CalendarModule} from 'primeng/calendar';
+
 @NgModule({
     imports: [
         TabMenuModule,
@@ -29,7 +31,8 @@ import {ToastModule} from 'primeng/toast';
         SidebarModule,
         GMapModule,
         CarouselModule,
-        ToastModule
+        ToastModule,
+        CalendarModule
 
     ],
     exports: [
@@ -46,9 +49,10 @@ import {ToastModule} from 'primeng/toast';
         SidebarModule,
         GMapModule,
         CarouselModule,
-        ToastModule
+        ToastModule,
+        CalendarModule
 
     ]
 })
 
-export class PrimeNgModule{}
+export class PrimeNgModule {}

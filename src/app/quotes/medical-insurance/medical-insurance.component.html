@@ -1,22 +1,23 @@
-<form class="form-group">
+<form class="form-group" [formGroup]="form">
     <div class="form-control">
         <label class="label-input">{{ 'quotes.age' | translate }}</label>
-        <p-dropdown [options]="ages" class="input-field"></p-dropdown>
+        <p-dropdown [options]="ages" class="input-field" name="age" formControlName="age" (onChange)="submitFormAuto($event.value, 'age')" ></p-dropdown>
     </div>
     <div class="form-control">
         <label class="label-input">{{ 'quotes.gender' | translate }}</label>
-        <input type="text" pInputText class="input-field" placeholder="MALE/FEMALE">
+        <p-dropdown [options]="gender" class="input-field" name="gender" formControlName="gender"></p-dropdown>
     </div>
     <div class="form-control">
         <label class="label-input">{{ 'quotes.type_work' | translate }}</label>
-        <p-dropdown [options]="" class="input-field"></p-dropdown>
+        <p-dropdown [options]="works" class="input-field" name="work" formControlName="work"></p-dropdown>
     </div>
+    
 
     <div class="form-control">
         <div class="radio-suffer p-grid">
             {{ 'quotes.qts' | translate }}
-            <label> <span> {{ 'quotes.yes' | translate }} </span><p-radioButton type="radio" name="salutation" ></p-radioButton></label>
-            <label> <span> {{ 'quotes.no' | translate }}</span><p-radioButton type="radio" name="salutation" >  </p-radioButton></label>
+            <label> <span> {{ 'quotes.yes' | translate }} </span><p-radioButton  type="radio" name="salutation" ></p-radioButton></label>
+            <label> <span> {{ 'quotes.no' | translate }}</span><p-radioButton  type="radio" name="salutation" >  </p-radioButton></label>
         </div>
 
     </div>
