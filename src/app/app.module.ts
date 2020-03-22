@@ -30,7 +30,7 @@ import { OrderSummaryComponent } from './checkout/order-summary/order-summary.co
 import { NavLinksComponent } from './navigation/nav-links/nav-links.component';
 import { HomeComponent } from './home/home.component';
 import { VideoHeaderComponent } from './home/video-header/video-header.component';
-import { ServicesComponent } from './home/services/services.component';
+
 import { StepsBookingComponent } from './home/steps-booking/steps-booking.component';
 import { WhyComponent } from './home/why/why.component';
 import { TestimonialsComponent } from './home/testimonials/testimonials.component';
@@ -39,6 +39,7 @@ import { ContactusComponent } from './home/contactus/contactus.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { InsuranceServicesComponent } from './insurance-services/insurance-services.component';
+import { ServicesComponent } from './home/services/services.component';
 
 //services
 import { QuotesService } from './quotes/shared/quotes.service';

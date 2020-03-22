@@ -4,6 +4,7 @@ html,
 body {
     height: 100%;
     font-family: Circle-Light !important;
+    scroll-behavior: smooth;
 }
 
 @font-face {
