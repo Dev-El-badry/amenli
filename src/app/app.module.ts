@@ -28,6 +28,17 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PaymentMethodComponent } from './checkout/payment-method/payment-method.component';
 import { OrderSummaryComponent } from './checkout/order-summary/order-summary.component';
 import { NavLinksComponent } from './navigation/nav-links/nav-links.component';
+import { HomeComponent } from './home/home.component';
+import { VideoHeaderComponent } from './home/video-header/video-header.component';
+import { ServicesComponent } from './home/services/services.component';
+import { StepsBookingComponent } from './home/steps-booking/steps-booking.component';
+import { WhyComponent } from './home/why/why.component';
+import { TestimonialsComponent } from './home/testimonials/testimonials.component';
+import { PartnersComponent } from './home/partners/partners.component';
+import { ContactusComponent } from './home/contactus/contactus.component';
+import { FooterComponent } from './home/footer/footer.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { InsuranceServicesComponent } from './insurance-services/insurance-services.component';
 
 //services
 import { QuotesService } from './quotes/shared/quotes.service';
@@ -41,15 +52,7 @@ import { UIService } from './shared/ui.service';
 import { CollbrationsService } from './collbrations/collbrations.service';
 import {MessageService} from 'primeng/api';
 import { TranslateConfigService } from './shared/translate-config.service';
-import { HomeComponent } from './home/home.component';
-import { VideoHeaderComponent } from './home/video-header/video-header.component';
-import { ServicesComponent } from './home/services/services.component';
-import { StepsBookingComponent } from './home/steps-booking/steps-booking.component';
-import { WhyComponent } from './home/why/why.component';
-import { TestimonialsComponent } from './home/testimonials/testimonials.component';
-import { PartnersComponent } from './home/partners/partners.component';
-import { ContactusComponent } from './home/contactus/contactus.component';
-import { FooterComponent } from './home/footer/footer.component';
+import { InsuranceService } from './insurance-services/insurance.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +85,8 @@ import { FooterComponent } from './home/footer/footer.component';
     PartnersComponent,
     ContactusComponent,
     FooterComponent,
+    AboutusComponent,
+    InsuranceServicesComponent,
     
   ],
   imports: [
@@ -94,7 +99,7 @@ import { FooterComponent } from './home/footer/footer.component';
     HttpClientModule,
     TranslateConfigModule
   ],
-  providers: [QuotesService, CompareModelService, CheckoutService, SharedService, OdooService, CollbrationsService, UIService, MessageService, TranslateConfigService],
+  providers: [InsuranceService, QuotesService, CompareModelService, CheckoutService, SharedService, OdooService, CollbrationsService, UIService, MessageService, TranslateConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
