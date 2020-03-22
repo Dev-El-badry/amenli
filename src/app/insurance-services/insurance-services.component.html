@@ -1,0 +1,19 @@
+<div class="inssurance">
+
+    <div class="img-header">
+        <img [src]="result.image" alt="aboutus image" width="100%">
+    </div>
+
+    <div class="container">
+        <h1 class="title-page">
+            {{result.title}}
+        </h1>
+
+        <div class="content" [innerHtml]="result.text">
+
+        </div>
+    </div>
+</div>
+
+<app-contactus id="section1"></app-contactus>
+<app-footer></app-footer>

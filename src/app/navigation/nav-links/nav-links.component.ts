@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TranslateConfigService } from 'src/app/shared/translate-config.service';
+import { Insurance } from 'src/app/insurance-services/insurance.model';
+import { InsuranceService } from 'src/app/insurance-services/insurance.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,13 +10,17 @@ import { TranslateConfigService } from 'src/app/shared/translate-config.service'
   templateUrl: './nav-links.component.html',
   styleUrls: ['./nav-links.component.css']
 })
-export class NavLinksComponent implements OnInit {
+export class NavLinksComponent implements OnInit, AfterViewInit {
   direction: 'ltr' | 'rtl';
-  constructor(private translate: TranslateConfigService) { }
+  services: Insurance[];
+  constructor(private translate: TranslateConfigService, private insuranceService: InsuranceService, private router: Router) { }
 
   ngOnInit() {
     this.direction = this.translate.getDir();
+    this.services = this.insuranceService.service;
   }
+
+
 
   get lang() { return localStorage.getItem('lang') }
 
@@ -30,6 +37,27 @@ export class NavLinksComponent implements OnInit {
     }
 
    
+  }
+
+  ngAfterViewInit() {
+    console.log('time');
+  //  console.log('url', location.pathname);
+    if(location.pathname === '/get_quote') {
+      var ele = document.getElementById('claims');
+      ele.classList.add("active-link");
+    }
+  }
+  
+
+
+  onNavigate() {
+    this.router.navigate(['/get_quote'])
+    .then(() => {
+      window.location.reload();
+      
+    });
+
+    
   }
 
 }

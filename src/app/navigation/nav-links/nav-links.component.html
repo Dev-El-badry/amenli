@@ -4,11 +4,31 @@
         <div class="links-nav ">
             <div class="p-grid p-align-center">
                 <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">{{ 'nav_list.home' | translate }}</a></div>
-                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a href="# ">{{ 'nav_list.about_us' | translate }}</a></div>
-                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a routerLink="/insurance" routerLinkActive="active-link">{{ 'nav_list.insurance_type' | translate }}</a></div>
-                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a href="# ">{{ 'nav_list.claims' | translate }}</a></div>
+                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a routerLink="/aboutus" routerLinkActive="active-link">{{ 'nav_list.about_us' | translate }}</a></div>
+                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} insurance-link">
+                    <a routerLink="/insurance" routerLinkActive="active-link">{{ 'nav_list.insurance_type' | translate }}</a>
+                    <div class="inner">
+                        <ul>
+
+                            <li *ngFor="let service of services">
+                                <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': service.tag}" queryParamsHandling="merge" routerLinkActive="active-link">
+                                {{service.title}}
+                                </a>
+                            </li>
+
+                            <!-- <li> <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': 'medical-insurance'}" queryParamsHandling="merge" routerLinkActive="active-link">{{'services.service2' | translate}}</a></li>
+                            <li> <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': 'travel-insurance'}" queryParamsHandling="merge" routerLinkActive="active-link">{{'services.service3' | translate}}</a></li>
+                            <li> <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': 'marine-insurance'}" queryParamsHandling="merge" routerLinkActive="active-link">{{'services.service4' | translate}}</a></li>
+                            <li> <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': 'motor-insurance'}" queryParamsHandling="merge" routerLinkActive="active-link">{{'services.service5' | translate}}</a></li>
+                            <li> <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': 'engineering-insurance'}" queryParamsHandling="merge" routerLinkActive="active-link">{{'services.service6' | translate}}</a></li>
+                            <li> <a [routerLink]="['/', 'insurance']" [queryParams]="{'page': 'property-insurance'}" queryParamsHandling="merge" routerLinkActive="active-link">{{'services.service7' | translate}}</a></li> -->
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a (click)="onNavigate()" id="claims">{{ 'nav_list.claims' | translate }}</a></div>
                 <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a href="# ">{{ 'nav_list.blog' | translate }}</a></div>
-                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a href="# ">{{ 'nav_list.contact_us' | translate }}</a></div>
+                <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} "><a href="#section1">{{ 'nav_list.contact_us' | translate }}</a></div>
                 <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} " *ngIf="direction != 'rtl'"><a class="lang-attr" (click)="changeLang('ar')">عربى</a></div>
                 <div class="p-col nav-item {{ lang == 'en' ? 'border-right' : 'border-left'  }} " *ngIf="direction != 'ltr'"><a class="lang-attr" (click)="changeLang('en')">English</a></div>
             </div>

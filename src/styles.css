@@ -4,6 +4,7 @@ html,
 body {
     height: 100%;
     font-family: Circle-Light !important;
+    scroll-behavior: smooth;
 }
 
 @font-face {
@@ -500,6 +501,10 @@ body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group:not(.ui-state
 
 
 /* end section carousel */
+
+.title-page {
+    font-size: 40px;
+}
 
 @media screen and (max-width: 700px) {
     .form-group {
