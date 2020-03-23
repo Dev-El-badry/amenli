@@ -166,13 +166,12 @@ export class QuotesService {
       }, error => console.log(error));
     }
   }
-
-  sortCompaniesByPrice(brandId: number, price: number, sort: string) {
-    const dataList = {id: brandId, price, sort};
+  sortMedicalCompaniesByPrice(sort: string) {
+    const dataList = {dob: parseInt(localStorage.getItem('dob')), sort};
     console.log('data list', dataList);
     const data = {paramlist: {data: dataList}};
     this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
-    'sort', data).subscribe(res => {
+    'sort_medical', data).subscribe(res => {
       if (res) {
         console.log(res);
         this.loadAllCompaniesByPrice.next(res);
@@ -180,6 +179,20 @@ export class QuotesService {
 
       }
     }, error => console.log(error));
+  }
+  sortCompaniesByPrice(brandId: number, price: number, sort: string) {
+      const dataList = {id: brandId, price, sort};
+      console.log('data list', dataList);
+      const data = {paramlist: {data: dataList}};
+      this.odooService.call_odoo_function('amenli_db', 'demo', 'demo', 'amenli.api',
+      'sort', data).subscribe(res => {
+        if (res) {
+          console.log(res);
+          this.loadAllCompaniesByPrice.next(res);
+          this.loadNumCompaniesByPrice.next(Object.keys(res).length);
+
+        }
+      }, error => console.log(error));
   }
   getByPlan(brandId: number, price: number, value_filter: string) {
     const dataList = { id: brandId, price, filter: value_filter };

@@ -52,8 +52,8 @@
                         </li>
 
                 </ul>
-
-                <button pButton type="button" class="buy-now {{planSelected == convertObjectToKeys(itm)[0]? 'active-btn ' :''}}" (click)="onClick(companyName,convertObjectToKeys(itm)[0],brandId, price)">{{'card_price.buy_now' | translate}}</button>
+                <!-- <button pButton type="button" *ngIf="medical === 'medical'" class="buy-now {{planSelected == convertObjectToKeys(itm)[0]? 'active-btn ' :''}}" (click)="onClick(companyName,convertObjectToKeys(itm)[0],brandId, price)">{{'card_price.buy_now' | translate}}</button> -->
+                <button pButton type="button" *ngIf="medical === 'medical'" class="buy-now {{planSelected == convertObjectToKeys(itm)[0]? 'active-btn ' :''}}" (click)="onClick(companyName,convertObjectToKeys(itm)[0],brandId, price)">{{'card_price.buy_now' | translate}}</button>
 
             </p-card>
         </div>

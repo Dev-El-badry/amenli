@@ -88,8 +88,13 @@ export class ChooseComponent implements OnInit, OnDestroy {
   }
 
   onClick(company_name, plan, brandId, price) {
-    console.log(company_name, plan, brandId, price);
-    this.router.navigate(['/', 'plan', 'choose', company_name, plan, brandId, price]);
+    if (localStorage.getItem('medical') === 'medical') {
+      this.router.navigate(['/', 'plan', 'choose', company_name, plan, parseInt(localStorage.getItem('dob'))]);
+    } else {
+      console.log(company_name, plan, brandId, price);
+
+      this.router.navigate(['/', 'plan', 'choose', company_name, plan, brandId, price]);
+    }
   }
 
   onResize(event) {
@@ -160,28 +165,36 @@ export class ChooseComponent implements OnInit, OnDestroy {
         this.items = res;
       }
     );
-    this.quoteService.sortCompaniesByPrice(this.brandId, this.price, sort);
+    if (localStorage.getItem('medical') === 'medical') {
+      this.quoteService.sortMedicalCompaniesByPrice(sort);
+    } else {
+      this.quoteService.sortCompaniesByPrice(this.brandId, this.price, sort);
+    }
   }
 
   getByPlan(val) {
     console.log(val);
-    if (val === 'all') {
-      this.loadItemsSubs = this.quoteService.loadAllCompanies.subscribe(res => {
-        this.items = res;
-      });
-      this.quoteService.getAllCompaniesData({
-        id: this.brandId,
-        price: this.price
-      });
+    if (localStorage.getItem('medical') === 'medical') {
+      console.log(val);
+    } else {
+      if (val === 'all') {
+        this.loadItemsSubs = this.quoteService.loadAllCompanies.subscribe(res => {
+          this.items = res;
+        });
+        this.quoteService.getAllCompaniesData({
+          id: this.brandId,
+          price: this.price
+        });
 
-      return;
-    }
-    this.loadItemsByFilterSubs = this.quoteService.loadAllCompaniesByFilter.subscribe(
-      res => {
-        this.items = res;
+        return;
       }
-    );
-    this.quoteService.getByPlan(this.brandId, this.price, val);
+      this.loadItemsByFilterSubs = this.quoteService.loadAllCompaniesByFilter.subscribe(
+        res => {
+          this.items = res;
+        }
+      );
+      this.quoteService.getByPlan(this.brandId, this.price, val);
+    }
   }
 
   ngOnDestroy() {

@@ -13,11 +13,11 @@
             <!-- [disabled]="!f.valid || !validPrice()" -->
             <!-- [disabled]="!f.valid || !validPrice()" -->
             <input type="hidden" name="price" #priceInput="ngModel" [ngModel]="price" requried>
-            <button pButton type="submit" label="Buy Now" class="ui-button-success color" [disabled]="!f.valid || !validPrice()">{{ 'card_price.buy_now' | translate }}</button>
+            <button pButton type="submit"  class="ui-button-success color" [disabled]="!f.valid || !validPrice()">{{ 'card_price.buy_now' | translate }}</button>
         </form>
     </p-card>
     <p class="or">{{ 'card_price.or' | translate }}</p>
-    <button pButton type="button" class="compare-btn" (click)="onClick()" label="Buy Now" [disabled]="!f.valid || !validPrice()">{{ 'card_price.go_compare' | translate }}</button>
+    <button pButton type="button" class="compare-btn" (click)="onClick()" [disabled]="!f.valid || !validPrice()">{{ 'card_price.go_compare' | translate }}</button>
     <!-- <app-compare-modal></app-compare-modal> -->
     <p class="other-compare">{{length}} {{ 'card_price.other' | translate }}</p>
 

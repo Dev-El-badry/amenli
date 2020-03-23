@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'companies/choose/:brandId/:price', component: ChooseComponent},
   {path: 'plan/choose/:company_name/:plan_selected/:dob', component: ComparePlansComponent},
   {path: 'companies/choose/:dob', component: ChooseComponent},
+  {path: 'checkout/payment/:company_name/:plan_selected/:dob', component: CheckoutComponent},
 
 ];
 
