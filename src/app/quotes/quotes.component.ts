@@ -15,13 +15,17 @@ export class QuotesComponent implements OnInit {
 
   ngOnInit() {
   }
+
   handleChange(e) {
-    const index = e.index;
-    if (index === 1) {
-      localStorage.setItem('medical', 'medical');
-    } else {
-      localStorage.removeItem('medical');
-    }
-}
+      const index = e.index;
+      if (index === 1) {
+        localStorage.setItem('medical', 'medical');
+      } else {
+        localStorage.removeItem('medical');
+      }
+  }
+
+  get lang() {return localStorage.getItem('lang');}
+
 
 }

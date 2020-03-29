@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'aboutus', component: AboutusComponent},
   { path: 'insurance', component: InsuranceServicesComponent},
-  {path: 'get_quote', component: QuotesComponent},
+  {path: 'claims', component: QuotesComponent},
   {path: 'plan/choose/:company_name/:plan_selected/:brandId/:price', component: ComparePlansComponent},
   {path: 'checkout/payment/:company_name/:plan_selected/:brandId/:price', component: CheckoutComponent},
   {path: 'companies/choose/:brandId/:price', component: ChooseComponent},

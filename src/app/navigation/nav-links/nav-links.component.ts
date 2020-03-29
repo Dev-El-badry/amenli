@@ -42,7 +42,7 @@ export class NavLinksComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     console.log('time');
   //  console.log('url', location.pathname);
-    if(location.pathname === '/get_quote') {
+    if(location.pathname === '/claims') {
       var ele = document.getElementById('claims');
       ele.classList.add("active-link");
     }
@@ -51,7 +51,7 @@ export class NavLinksComponent implements OnInit, AfterViewInit {
 
 
   onNavigate() {
-    this.router.navigate(['/get_quote'])
+    this.router.navigate(['/claims'])
     .then(() => {
       window.location.reload();
       
